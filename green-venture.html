@@ -14,7 +14,7 @@
   --dark-slate:#8A93A1; --dark-line:#252B34; --ease:cubic-bezier(.22,.7,.2,1);
   --bar-h:60px; --r:12px;
   /* PALETA DE EXEMPLO — substituir pelas cores reais da Green Venture */
-  --gv:#1F6B4A; --gv-2:#2E8B5F; --m1:#2E8B5F; --m2:#3FA06B; --m3:#C2703A; --m4:#1F6B4A; --m5:#4CAF7D;
+  --gv:#0097CE; --gv-2:#38D430; --gv-3:#2F1E4F; --m1:#0097CE; --m2:#0097CE; --m3:#2F1E4F; --m4:#0097CE; --m5:#0097CE;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -69,7 +69,7 @@ img{display:block;max-width:100%}
 /* família — as cinco juntas */
 .fam{background:#fff;border:1px solid var(--line);padding:5% 4%}
 .fam .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:0;height:100%}
-.fam .cell{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border-right:1px solid #EDEFF2;padding:4%}
+.fam .cell{display:flex;align-items:center;justify-content:center;border-right:1px solid #EDEFF2;padding:3% 2%}
 .fam .cell:last-child{border-right:none}
 .fam .cell .sym{width:42px;height:42px;position:relative}
 .fam .cell .lb{font-family:"Space Mono",monospace;font-size:7.5px;letter-spacing:.06em;color:#697180;text-align:center;text-transform:uppercase;line-height:1.7}
@@ -177,6 +177,10 @@ h1,h2,h3,h4,h5,h6,
 p,li,figcaption,
 .lead,.sub,.cap,.slg,.note,.about-text p,.case-text p,.glassbox p,.sov p,.ov p,
 .bcard .ov p,.strip .panel .txt p,.sk p,.meta div p,.warn,.plab,.ph span,.pc span{text-wrap:pretty}
+.pc img{width:100%;height:100%;object-fit:cover;display:block}
+.pc:has(img){border-style:solid}
+.pc.lg img{object-fit:contain}
+.fam .cell img{width:100%;max-width:150px;height:auto;object-fit:contain}
 </style>
 </head>
 <body>
@@ -222,27 +226,12 @@ p,li,figcaption,
   </div>
 </section>
 
-<div class="wrap">
-  <div class="warn rv">
-    ▲ AVISO — as cores desta página são <b>invenção minha</b>, só para veres a estrutura.<br>
-    Assim que me deres a paleta real da Green Venture, troco tudo de uma vez.
-  </div>
-</div>
+
 
 <!-- ABERTURA: A FAMÍLIA -->
 <section>
   <div class="wrap rv">
-    <div class="pc a169 fam">
-      <span class="simlab dk">exemplo</span>
-      <span class="parent">Green Venture</span>
-      <div class="grid5">
-        <div class="cell"><div class="sym"><svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="17" fill="none" stroke="var(--m1)" stroke-width="3"/><circle cx="21" cy="21" r="7" fill="var(--m1)"/></svg></div><span class="lb">Central Solar<br>do Buzi</span></div>
-        <div class="cell"><div class="sym"><svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="17" fill="none" stroke="var(--m2)" stroke-width="3"/><path d="M21 8 L21 34" stroke="var(--m2)" stroke-width="3"/><circle cx="21" cy="21" r="6" fill="var(--m2)"/></svg></div><span class="lb">Central Solar<br>do Chokwé</span></div>
-        <div class="cell"><div class="sym"><svg viewBox="0 0 42 42"><path d="M21 6 C13 16 13 22 21 36 C29 22 29 16 21 6Z" fill="var(--m3)"/></svg></div><span class="lb">Central Termo.<br>do Chokwé</span></div>
-        <div class="cell"><div class="sym"><svg viewBox="0 0 42 42"><path d="M8 30 L21 10 L34 30Z" fill="none" stroke="var(--m4)" stroke-width="3.4" stroke-linejoin="round"/></svg></div><span class="lb">EnerManica</span></div>
-        <div class="cell"><div class="sym"><svg viewBox="0 0 42 42"><rect x="7" y="7" width="28" height="28" rx="8" fill="none" stroke="var(--m5)" stroke-width="3.4"/><path d="M15 21 L27 21" stroke="var(--m5)" stroke-width="3.4"/></svg></div><span class="lb">EnerNamialo</span></div>
-      </div>
-    </div>
+    <div class="pc a169 fam"><span class="parent">Green Venture</span><div class="grid5"><div class="cell"><img src="imagens/GV_Logo_Buzi-Companhia-solar.svg" alt="Central Solar do Buzi" style="width:100%;max-width:150px;height:auto"></div><div class="cell"><img src="imagens/GV_Logo_Companhia-Solar-Chokwe.svg" alt="Companhia Solar do Chokwé" style="width:100%;max-width:150px;height:auto"></div><div class="cell"><img src="imagens/GV_Logo_Termoeletrica-Chokwe.svg" alt="Central Termoelétrica do Chokwé" style="width:100%;max-width:150px;height:auto"></div><div class="cell"><img src="imagens/GV_Logo_EnerManica.svg" alt="EnerManica" style="width:100%;max-width:150px;height:auto"></div><div class="cell"><img src="imagens/GV_Logo_EnerNamialo.svg" alt="EnerNamialo" style="width:100%;max-width:150px;height:auto"></div></div></div>
     <div class="cap">As cinco marcas lado a lado — desenhos diferentes, mesma família</div>
   </div>
 </section>
@@ -259,93 +248,32 @@ p,li,figcaption,
   </div>
   <div class="case-text rv">
     <h2>A decisão</h2>
-    <p>Adaptei cada logótipo ao nome da marca, para que cada uma tivesse algo de seu. O que as une é a cor — é por aí que se percebe a origem, mesmo quando os desenhos são diferentes. A tipografia faz o resto do trabalho, calada.</p>
+    <p>Adaptei cada logótipo ao nome e ao tipo de energia — a estrela solar do Buzi, as barras da termoelétrica, os paralelogramos das duas Ener. O que as une é o gradiente verde-azul, que passa por todas. A termoelétrica troca o azul pelo roxo, porque não é solar.</p>
   </div>
 </div>
 
 <!-- GRUPO 1 — AS MARCAS -->
-<section class="group">
-  <div class="wrap">
-    <div class="ghead rv"><h3>As cinco marcas</h3><span class="mono">01 / 03</span></div>
-    <div class="g5 rv">
-      <div class="pc a43 lg"><span class="simlab dk">exemplo</span>
-        <div class="mk"><div class="sym"><svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="17" fill="none" stroke="var(--m1)" stroke-width="3"/><circle cx="21" cy="21" r="7" fill="var(--m1)"/></svg></div>
-        <div class="nm">Central Solar<br>do Buzi<i>GREEN VENTURE</i></div></div>
-        <div class="slg">slogan da marca</div></div>
-      <div class="pc a43 lg"><span class="simlab dk">exemplo</span>
-        <div class="mk"><div class="sym"><svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="17" fill="none" stroke="var(--m2)" stroke-width="3"/><path d="M21 8 L21 34" stroke="var(--m2)" stroke-width="3"/><circle cx="21" cy="21" r="6" fill="var(--m2)"/></svg></div>
-        <div class="nm">Central Solar<br>do Chokwé<i>GREEN VENTURE</i></div></div>
-        <div class="slg">slogan da marca</div></div>
-      <div class="pc a43 lg"><span class="simlab dk">exemplo</span>
-        <div class="mk"><div class="sym"><svg viewBox="0 0 42 42"><path d="M21 6 C13 16 13 22 21 36 C29 22 29 16 21 6Z" fill="var(--m3)"/></svg></div>
-        <div class="nm">Central Termoelétrica<br>do Chokwé<i>GREEN VENTURE</i></div></div>
-        <div class="slg">slogan da marca</div></div>
-      <div class="pc a43 lg"><span class="simlab dk">exemplo</span>
-        <div class="mk"><div class="sym"><svg viewBox="0 0 42 42"><path d="M8 30 L21 10 L34 30Z" fill="none" stroke="var(--m4)" stroke-width="3.4" stroke-linejoin="round"/></svg></div>
-        <div class="nm">EnerManica<i>GREEN VENTURE</i></div></div>
-        <div class="slg">slogan da marca</div></div>
-      <div class="pc a43 lg"><span class="simlab dk">exemplo</span>
-        <div class="mk"><div class="sym"><svg viewBox="0 0 42 42"><rect x="7" y="7" width="28" height="28" rx="8" fill="none" stroke="var(--m5)" stroke-width="3.4"/><path d="M15 21 L27 21" stroke="var(--m5)" stroke-width="3.4"/></svg></div>
-        <div class="nm">EnerNamialo<i>GREEN VENTURE</i></div></div>
-        <div class="slg">slogan da marca</div></div>
-      <div class="pc a43 lg" style="background:#F7F8F9;align-items:center;justify-content:center">
-        <div class="slg" style="margin:0;text-align:center;line-height:2">espaço livre<br>› detalhe, construção<br>ou variação do símbolo</div></div>
-    </div>
-    <div class="cap">Cada nome pediu um desenho — a cor é que os mantém na mesma casa</div>
-  </div>
-</section>
+
 
 <!-- GRUPO 2 — APLICAÇÕES -->
 <section class="group">
   <div class="wrap">
-    <div class="ghead rv"><h3>Aplicações</h3><span class="mono">02 / 03</span></div>
+    <div class="ghead rv"><h3>Aplicações</h3><span class="mono">01 / 01</span></div>
     <div class="g2 rv" style="margin-bottom:16px">
-      <div class="pc a43 appl"><span class="simlab dk">exemplo</span>
-        <div class="sheet"><div class="bar" style="background:var(--m1)"></div>
-          <div class="sy"><svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="17" fill="none" stroke="var(--m1)" stroke-width="4"/><circle cx="21" cy="21" r="7" fill="var(--m1)"/></svg></div>
-          <div class="ln" style="top:34%"></div><div class="ln" style="top:42%;right:34%"></div>
-          <div class="ln" style="top:54%"></div><div class="ln" style="top:62%;right:22%"></div><div class="ln" style="top:70%;right:46%"></div>
-        </div></div>
-      <div class="pc a43 appl"><span class="simlab dk">exemplo</span>
-        <div class="sheet"><div class="bar" style="background:var(--m3)"></div>
-          <div class="sy"><svg viewBox="0 0 42 42"><path d="M21 6 C13 16 13 22 21 36 C29 22 29 16 21 6Z" fill="var(--m3)"/></svg></div>
-          <div class="ln" style="top:34%"></div><div class="ln" style="top:42%;right:40%"></div>
-          <div class="ln" style="top:54%"></div><div class="ln" style="top:62%;right:28%"></div><div class="ln" style="top:70%;right:52%"></div>
-        </div></div>
+      <div class="pc a43"><img src="imagens/GV_Mockup_Central-Solar-do-Buzi.jpg" alt="Aplicação — Central Solar do Buzi"></div>
+      <div class="pc a43"><img src="imagens/GV_Mockup_Companhia-Solar-do-Chokwe.jpg" alt="Aplicação — Companhia Solar do Chokwé"></div>
     </div>
     <div class="g3 rv">
-      <div class="pc a43 sign"><span class="simlab">exemplo</span>
-        <div class="board" style="background:var(--m2)"><div class="sy"><svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="17" fill="none" stroke="#fff" stroke-width="3.4"/><path d="M21 8 L21 34" stroke="#fff" stroke-width="3.4"/></svg></div><span class="tx">Central Solar<br>do Chokwé</span></div>
-        <div class="post"></div></div>
-      <div class="pc a43 deck"><span class="simlab">exemplo</span>
-        <div class="sc"><div class="tp" style="background:var(--m4)"></div><b>EnerManica</b><i>APRESENTAÇÃO INSTITUCIONAL</i></div></div>
-      <div class="pc a43 appl" style="background:#E7E9EA"><span class="simlab dk">exemplo</span>
-        <div class="sheet" style="width:52%;height:64%"><div class="bar" style="background:var(--m5);height:34%"></div>
-          <div class="ln" style="top:48%"></div><div class="ln" style="top:58%;right:38%"></div><div class="ln" style="top:68%;right:24%"></div></div></div>
+      <div class="pc a43"><img src="imagens/GV_Mockup_Central-Termoeletrica-do-Chokwe.jpg" alt="Aplicação — Termoelétrica do Chokwé"></div>
+      <div class="pc a43"><img src="imagens/GV_Mockup_EnerManica.jpg" alt="Aplicação — EnerManica"></div>
+      <div class="pc a43"><img src="imagens/GV_Mockup_EnerNamialo.jpg" alt="Aplicação — EnerNamialo"></div>
     </div>
-    <div class="cap">Estacionário, sinalética e apresentações — o sistema aplicado marca a marca</div>
+    <div class="cap">Estacionário e aplicações — o sistema aplicado marca a marca</div>
   </div>
 </section>
 
 <!-- GRUPO 3 — SLOGANS -->
-<section class="group">
-  <div class="wrap">
-    <div class="ghead rv"><h3>Os slogans</h3><span class="mono">03 / 03</span></div>
-    <div class="g2 rv">
-      <div class="pc a169" style="background:var(--gv);display:flex;align-items:center;padding:6%">
-        <span class="simlab">exemplo</span>
-        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;color:#fff;font-size:clamp(1rem,2.4vw,1.8rem);line-height:1.14">“Slogan de<br>uma das marcas”</div>
-      </div>
-      <div class="pc a169" style="background:#fff;border:1px solid var(--line);display:flex;align-items:center;padding:6%">
-        <span class="simlab dk">exemplo</span>
-        <div style="font-family:'Space Mono',monospace;font-size:9px;line-height:2.4;color:#697180;letter-spacing:.05em">
-          BUZI — SOLAR<br>CHOKWÉ — SOLAR<br>CHOKWÉ — TERMOELÉTRICA<br>MANICA — ENERGIA<br>NAMIALO — ENERGIA
-        </div>
-      </div>
-    </div>
-    <div class="cap">Cada slogan distingue a empresa pelo tipo de energia, sem repetir a localização que já está no nome</div>
-  </div>
-</section>
+
 
 <section class="closing">
   <div class="wrap rv">

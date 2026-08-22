@@ -14,7 +14,7 @@
   --dark-slate:#8A93A1; --dark-line:#252B34; --ease:cubic-bezier(.22,.7,.2,1);
   --bar-h:60px; --r:12px;
   /* cores do evento — a substituir pelas reais da Green Venture */
-  --gv1:#6E7A86; --gv2:#8C9098; --gv3:#4E5760;
+  --gv1:#0097CE; --gv2:#38D430; --gv3:#2F1E4F;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -143,6 +143,8 @@ body.locked .langtog{color:rgba(255,255,255,.7)}
 body.locked .langtog b{color:#fff}
 @media(max-width:860px){ .burger{display:flex} }
 @media(min-width:861px){ .mnav{display:none} }
+.pc img,.pc video{width:100%;height:100%;object-fit:cover;display:block}
+.pc:has(img),.pc:has(video){border-style:solid}
 </style>
 </head>
 <body>
@@ -185,12 +187,7 @@ body.locked .langtog b{color:#fff}
   </div>
 </section>
 
-<div class="wrap">
-  <div class="warn rv">
-    ▲ O evento só acontece em <b>setembro de 2026</b>. As peças mostradas são mockups;<br>
-    as fotografias reais entram depois. As cores aqui usadas ainda não são as da marca.
-  </div>
-</div>
+
 
 <section>
   <div class="wrap rv">
@@ -256,7 +253,7 @@ body.locked .langtog b{color:#fff}
           <div class="ln2" style="top:76%;right:44%"></div>
         </div>
       </div>
-      <div class="pc a43"><span>interior da agenda<br>atividades e visitas<br>› mockup</span></div>
+      <div class="pc a43"><img src="imagens/GV_Summit_Agenda_Miolo.jpg" alt="Interior da agenda"></div>
     </div>
     <div class="cap">Por fora, os dois dias com atividades e visitas. Por dentro, num formato mais pequeno, a reunião anual e os oradores</div>
   </div>
@@ -264,27 +261,27 @@ body.locked .langtog b{color:#fff}
 
 <section class="group">
   <div class="wrap">
-    <div class="ghead rv"><h3>Para vestir e colar</h3><span class="mono">03 / 05</span></div>
+    <div class="ghead rv"><h3>Para vestir e usar</h3><span class="mono">03 / 05</span></div>
     <div class="gbig rv">
-      <div class="pc a169"><span>polo do evento<br>› mockup</span></div>
+      <div class="pc a169"><img src="imagens/GV_Summit_Polo.jpg" alt="Polo do evento"></div>
       <div class="stack">
-        <div class="pc a43"><span>crachás<br>› mockup</span></div>
-        <div class="pc a43"><span>stickers<br>› mockup</span></div>
+        <div class="pc a43"><img src="imagens/GV_Summit_Cracha.jpg" alt="Crachás"></div>
+        <div class="pc a43"><img src="imagens/GV_Summit_lanyard.jpg" alt="Lanyard"></div>
       </div>
     </div>
-    <div class="cap">Polo, crachás e stickers</div>
+    <div class="cap">Polo, crachás e lanyard</div>
   </div>
 </section>
 
 <section class="group">
   <div class="wrap">
-    <div class="ghead rv"><h3>Apresentação</h3><span class="mono">04 / 05</span></div>
+    <div class="ghead rv"><h3>Agenda e materiais</h3><span class="mono">04 / 05</span></div>
     <div class="g3 rv">
-      <div class="pc a43"><span>slide de abertura<br>› mockup</span></div>
-      <div class="pc a43"><span>slide de conteúdo<br>› mockup</span></div>
-      <div class="pc a43"><span>slide de oradores<br>› mockup</span></div>
+      <div class="pc a43"><img src="imagens/GV_Summit_Agenda_Capa.jpg" alt="Capa da agenda"></div>
+      <div class="pc a43"><img src="imagens/GV_Summit_Caixas.jpg" alt="Caixas do evento"></div>
+      <div class="pc a43"><img src="imagens/GV_Summit_logo.jpg" alt="Logótipo GV Summit"></div>
     </div>
-    <div class="cap">Fundos e estrutura para as sessões da reunião anual</div>
+    <div class="cap">Capa da agenda, as caixas e o logótipo do evento</div>
   </div>
 </section>
 
@@ -293,7 +290,7 @@ body.locked .langtog b{color:#fff}
     <div class="ghead rv"><h3>O logótipo em movimento</h3><span class="mono">05 / 05</span></div>
     <div class="g2 rv">
       <div class="pc a169"><video src="imagens/GV_Summit_video_apresentacao.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video></div>
-      <div class="pc a169"><span>▶ abertura das sessões<br>› substituir · .mp4</span></div>
+      
     </div>
     <div class="cap">Animações do logótipo para abrir sessões e vídeos</div>
   </div>
