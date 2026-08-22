@@ -44,6 +44,8 @@ img{display:block;max-width:100%}
 
 /* placeholders */
 .ph{position:relative;width:100%;background:var(--paper2);border:1px dashed var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center;border-radius:var(--r)}
+.real{position:relative;width:100%;overflow:hidden;border-radius:var(--r);background:var(--paper2);border:1px solid var(--line)}
+.real img,.real video{width:100%;height:100%;object-fit:cover;display:block}
 .ph span{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.04em;color:var(--slate);text-align:center;padding:14px;line-height:1.9;text-transform:uppercase}
 .ph b{color:var(--ink)}
 .ph::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 15px,rgba(150,160,175,.05) 15px 16px)}
@@ -196,8 +198,7 @@ p,li,figcaption,
 <section>
   <div class="wrap rv">
     <div class="opener">
-      <div class="bg"></div>
-      <div class="lab">▣ PEÇA DE ABERTURA<br>logótipo do evento com o gradiente<br>› substituir · horizontal 16:9</div>
+      <video src="imagens/AN_gif_2.mp4" autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
     </div>
     <div class="cap">Logótipo do Annual Meeting — o gradiente construído a partir das cores da empresa</div>
   </div>
@@ -227,12 +228,9 @@ p,li,figcaption,
       <span class="mono">01 / 04</span>
     </div>
     <div class="gbig rv">
-      <div class="pc a169"><video src="imagens/AN_gif_website_4.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video></div>
-      <div class="pc a169"><video src="imagens/AN_gif_2.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video></div>
-      <div class="stack">
-        <div class="pc a43"><video src="imagens/AN_gif_1.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video></div>
-        <div class="pc a43"><img src="imagens/AN_fundo_5.jpg" alt="Fundo de apresentação" style="width:100%;height:100%;object-fit:cover"></div>
-      </div>
+      <div class="real a169"><video src="imagens/AN_gif_website_4.mp4" autoplay loop muted playsinline></video></div>
+      <div class="real a43"><img src="imagens/AN_logo_3.jpg" alt="Logótipo do Annual Meeting"></div>
+      <div class="real a43"><img src="imagens/AN_fundo_5.jpg" alt="Fundo de apresentação"></div>
     </div>
     <div class="cap">Uma peça só, a aparecer em todo o lado — sem nunca se repetir da mesma maneira</div>
   </div>
@@ -246,13 +244,13 @@ p,li,figcaption,
       <span class="mono">02 / 04</span>
     </div>
     <div class="g2 rv" style="margin-bottom:16px">
-      <div class="ph a45"><span><b>imagem</b><br>agenda impressa · capa<br>vertical 4:5</span></div>
-      <div class="ph a45"><span><b>imagem</b><br>agenda impressa · interior<br>vertical 4:5</span></div>
+      
+      
     </div>
     <div class="g3 rv">
-      <div class="pc a11"><img src="imagens/AN_foto_9.jpg" alt="Badges no evento" style="width:100%;height:100%;object-fit:cover"></div>
-      <div class="pc a11"><img src="imagens/AN_foto_10.jpg" alt="Roll-up no evento" style="width:100%;height:100%;object-fit:cover"></div>
-      <div class="pc a11"><img src="imagens/AN_foto_11.jpg" alt="Detalhe do evento" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="real a11"><img src="imagens/AN_foto_9.jpg" alt="Badges no evento"></div>
+      <div class="real a11"><img src="imagens/AN_foto_10.jpg" alt="Roll-up no evento"></div>
+      <div class="real a11"><img src="imagens/AN_foto_11.jpg" alt="Detalhe do evento"></div>
     </div>
     <div class="cap">Agenda, badges e roll-ups — do papel que se tem na mão ao que se vê à entrada</div>
   </div>
@@ -266,12 +264,11 @@ p,li,figcaption,
       <span class="mono">03 / 04</span>
     </div>
     <div class="rv" style="margin-bottom:16px">
-      <div class="pc a169"><img src="imagens/AN_foto_landing-page_13.jpg" alt="Landing page do evento" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="real a169"><img src="imagens/AN_foto_landing-page_13.jpg" alt="Landing page do evento"></div>
     </div>
     <div class="g3 rv">
-      <div class="pc a43"><img src="imagens/AN_print_detalhe-landing-page_14.png" alt="Detalhe da landing page" style="width:100%;height:100%;object-fit:cover"></div>
-      <div class="pc a43"><video src="imagens/AN_gif_email_12.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video></div>
-      <div class="pc a43"><img src="imagens/AN_logo_3.jpg" alt="Logótipo do Annual Meeting" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="real a43"><img src="imagens/AN_print_detalhe-landing-page_14.png" alt="Detalhe da landing page"></div>
+      <div class="real a43"><video src="imagens/AN_gif_email_12.mp4" autoplay loop muted playsinline></video></div>
     </div>
     <div class="cap">Landing page com o programa e os oradores</div>
   </div>
@@ -286,10 +283,10 @@ p,li,figcaption,
     </div>
     <div class="gbig rv" style="grid-template-columns:1fr 1.6fr">
       <div class="stack">
-        <div class="pc a43"><img src="imagens/AN_foto_6.jpg" alt="Peças em uso no evento" style="width:100%;height:100%;object-fit:cover"></div>
-        <div class="pc a43"><img src="imagens/An_foto_7.jpg" alt="Detalhe do evento" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="real a43"><img src="imagens/AN_foto_6.jpg" alt="Peças em uso no evento"></div>
+        <div class="real a43"><img src="imagens/An_foto_7.jpg" alt="Detalhe do evento"></div>
       </div>
-      <div class="pc a169"><img src="imagens/AN_foto_8.jpg" alt="O evento a acontecer" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="real a169"><img src="imagens/AN_foto_8.jpg" alt="O evento a acontecer"></div>
     </div>
     <div class="cap">O sistema aplicado no espaço, no Chile</div>
   </div>
