@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Índice — João Barbosa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ECEEF1; --paper2:#E1E4E9; --ink:#15181C; --slate:#697180;
+  --line:#CBD1D9; --accent:#3F6491; --dark:#12151A; --dark-ink:#EDF0F3;
+  --dark-slate:#8A93A1; --dark-line:#252B34; --ease:cubic-bezier(.22,.7,.2,1);
+  --bar-h:60px; --r:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--accent);color:var(--paper)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+.mono{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)}
+.bull{color:var(--accent)}
+
+.bar{height:var(--bar-h);display:flex;align-items:center;position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--paper) 62%,transparent);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent);padding:0 32px}
+.bar .row{display:flex;justify-content:space-between;align-items:center;width:100%}
+.bar .logo{font-family:"Space Mono",monospace;font-weight:700;font-size:16px;letter-spacing:.02em;color:var(--ink)}
+.bar .logo b{color:var(--accent)}
+.bar nav{display:flex;gap:24px;align-items:center}
+.bar nav a.link{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.04em;color:var(--slate);transition:color .2s}
+.bar nav a.link:hover,.bar nav a.link.on{color:var(--ink)}
+.pill{border:1px solid var(--accent);color:var(--accent)!important;border-radius:100px;padding:8px 16px;font-family:"Space Mono",monospace;font-size:12px;transition:.25s var(--ease)}
+.pill:hover{background:var(--accent);color:#fff!important}
+.langtog{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.06em;cursor:pointer;background:none;border:none;color:var(--slate)}
+.langtog b{color:var(--ink)}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+.head{padding:8vh 0 5vh}
+.head .mono{display:block;margin-bottom:20px}
+.head h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(2.6rem,8vw,6.2rem);line-height:.88;letter-spacing:.02em}
+.head .sub{margin-top:22px;color:var(--slate);max-width:44ch;font-size:1.05rem}
+
+
+/* ===== FAIXAS DE PROJETO ===== */
+.list{border-top:1px solid var(--line);margin-top:3vh}
+.strip{display:block;border-bottom:1px solid var(--line);position:relative;transition:background .4s var(--ease)}
+.strip.open{background:#E4E7EB}
+.strip .face{display:block;padding:32px 8px 24px;transition:transform .45s var(--ease),padding .4s var(--ease);position:relative}
+/* com página: desloca para a direita */
+.strip.link:hover .face{transform:translateX(16px)}
+/* expansível: abre ligeiramente para baixo */
+.strip.exp:hover .face{padding-top:38px;padding-bottom:30px}
+.strip .top{display:grid;grid-template-columns:70px 1fr 210px 90px;gap:20px;align-items:baseline}
+.strip .n{font-family:"Space Mono",monospace;font-size:12px;color:var(--accent);font-weight:700}
+.strip .nm{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1.3rem,3vw,2.3rem);letter-spacing:.01em;line-height:1}
+.strip .cat,.strip .yr{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}
+/* acção no fundo da faixa */
+.strip .act{display:flex;align-items:center;gap:8px;margin-top:20px;
+  font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);
+  background:none;border:none;cursor:pointer;padding:0;transition:color .25s var(--ease)}
+.strip:hover .act{color:var(--accent)}
+.strip .act .arw{display:inline-block;transition:transform .4s var(--ease)}
+.strip.open .act .arw{transform:rotate(180deg)}
+.strip.link:hover .act .arw{transform:translate(3px,-3px)}
+/* painel que expande */
+.strip .panel{max-height:0;overflow:hidden;transition:max-height .55s var(--ease),opacity .4s var(--ease);opacity:0}
+.strip.open .panel{opacity:1}
+.strip .panel .inner{padding:6px 8px 40px;display:grid;grid-template-columns:1.35fr 1fr;gap:36px;align-items:center}
+.strip .panel .shot{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--paper2);border:1px dashed var(--line);
+  display:flex;align-items:center;justify-content:center}
+.strip .panel .shot span{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);text-align:center;line-height:2;padding:16px}
+.strip .panel .txt p{font-size:1.02rem;line-height:1.5;color:var(--ink);max-width:38ch}
+.strip .panel .txt .meta{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-top:16px}
+@media(max-width:900px){
+  .strip .top{grid-template-columns:46px 1fr;gap:12px}
+  .strip .cat,.strip .yr{display:none}
+  .strip .panel .inner{grid-template-columns:1fr;gap:20px}
+}
+
+/* ===== POSTS ===== */
+.posts{padding:10vh 0 2vh}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:34px}
+.sec-head h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1.6rem,4vw,2.8rem);letter-spacing:.01em}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.post{position:relative;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--paper2);border:1px solid var(--line);cursor:pointer}
+.post .art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .6s var(--ease)}
+.post:hover .art{transform:scale(1.06)}
+.post .lb{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+.post .ov{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;
+  background:rgba(255,255,255,.15);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);
+  opacity:0;transition:opacity .35s var(--ease)}
+.post:hover .ov,.post:focus-within .ov{opacity:1}
+.post .ov b{font-family:"Bricolage Grotesque",sans-serif;font-size:.98rem;color:var(--ink)}
+.post .ov span{font-family:"Space Mono",monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.post.wide{aspect-ratio:4/5}
+.post .kind{position:absolute;top:12px;left:12px;z-index:3;font-family:"Space Mono",monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);background:rgba(255,255,255,.7);padding:3px 8px;border-radius:5px}
+
+footer{padding:6vh 0 5vh;border-top:1px solid var(--line);margin-top:10vh}
+footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media(max-width:900px){
+  .row-p .inner{grid-template-columns:44px 1fr 26px;gap:12px;padding:22px 4px}
+  .row-p .cat,.row-p .yr{display:none}
+  .peek{display:none}
+  .pgrid{grid-template-columns:repeat(2,1fr)}
+  .bar nav a.link,.bar .pill{display:none}
+  .bar nav{gap:16px}
+  
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.peek{display:none}}
+
+/* marcas sem página — cards com glass */
+.brands{padding:10vh 0 0}
+.bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.bcard{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--paper2);border:1px solid var(--line);cursor:pointer}
+.bcard .art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .6s var(--ease)}
+.bcard:hover .art{transform:scale(1.05)}
+.bcard .mark{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1rem,2vw,1.5rem);letter-spacing:.02em;color:var(--slate)}
+.bcard .ov{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;
+  background:rgba(255,255,255,.15);backdrop-filter:blur(15px) saturate(150%);-webkit-backdrop-filter:blur(15px) saturate(150%);
+  opacity:0;transition:opacity .35s var(--ease)}
+.bcard:hover .ov,.bcard:focus-within .ov{opacity:1}
+.bcard .ov .tg{font-family:"Space Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+.bcard .ov h4{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.05rem;color:var(--ink)}
+.bcard .ov p{font-size:.85rem;color:var(--ink);opacity:.75;margin-top:5px;line-height:1.4}
+.bcard .ov .gb{display:inline-flex;align-items:center;gap:7px;margin-top:12px;align-self:flex-start;
+  font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.05em;color:var(--ink);
+  background:rgba(255,255,255,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.6);border-radius:100px;padding:8px 14px;transition:.25s var(--ease)}
+.bcard .ov .gb:hover{background:rgba(255,255,255,.65);border-color:#fff}
+@media(max-width:900px){.bgrid{grid-template-columns:repeat(2,1fr)}}
+
+/* carrossel dentro dos posts */
+.post .car{position:absolute;inset:0;display:flex;transition:transform .5s var(--ease)}
+.post .car .sl{min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.post .car .sl .lb{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+.post .nav{position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:space-between;padding:0 8px;opacity:0;transition:opacity .3s var(--ease);pointer-events:none}
+.post:hover .nav,.post:focus-within .nav{opacity:1;pointer-events:auto}
+.post .nav button{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.6);
+  background:rgba(255,255,255,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  color:var(--ink);font-family:"Space Mono",monospace;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:.2s var(--ease)}
+.post .nav button:hover{background:rgba(255,255,255,.75)}
+.post .dots{position:absolute;bottom:10px;left:0;right:0;z-index:4;display:flex;gap:5px;justify-content:center}
+.post .dots i{width:5px;height:5px;border-radius:50%;background:rgba(105,113,128,.35);transition:.3s var(--ease)}
+.post .dots i.on{background:var(--accent);width:14px;border-radius:3px}
+
+/* ===== MENU MOBILE ===== */
+.burger{position:relative;z-index:60;width:34px;height:34px;display:none;align-items:center;justify-content:center;
+  background:none;border:none;cursor:pointer;padding:0}
+.burger .bl{display:block;position:absolute;width:20px;height:1.6px;background:var(--ink);border-radius:2px;
+  transition:transform .38s var(--ease),opacity .25s var(--ease),background .3s}
+.burger .bl:nth-child(1){transform:translateY(-5px)}
+.burger .bl:nth-child(3){transform:translateY(5px)}
+.burger.on .bl{background:#fff}
+.burger.on .bl:nth-child(1){transform:rotate(45deg)}
+.burger.on .bl:nth-child(2){opacity:0}
+.burger.on .bl:nth-child(3){transform:rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:50;padding:var(--bar-h) 32px 0;
+  background:rgba(16,20,27,.52);
+  backdrop-filter:blur(30px) saturate(160%);-webkit-backdrop-filter:blur(30px) saturate(160%);
+  display:flex;flex-direction:column;justify-content:center;gap:6px;
+  opacity:0;visibility:hidden;transition:opacity .38s var(--ease),visibility .38s}
+.mnav.open{opacity:1;visibility:visible}
+.mnav a{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(2.2rem,11vw,3.4rem);
+  letter-spacing:.02em;line-height:1.12;color:#fff;
+  opacity:0;transform:translateY(14px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.mnav.open a{opacity:1;transform:none}
+.mnav.open a:nth-child(1){transition-delay:.08s}
+.mnav.open a:nth-child(2){transition-delay:.14s}
+.mnav.open a:nth-child(3){transition-delay:.20s}
+.mnav.open a:nth-child(4){transition-delay:.26s}
+.mnav a.aqui{color:#8FB4E4}
+.mnav .mfoot{margin-top:36px;display:flex;gap:22px;align-items:center;
+  opacity:0;transition:opacity .4s var(--ease) .32s}
+.mnav.open .mfoot{opacity:1}
+.mnav .mfoot .mono{font-size:11px;color:rgba(255,255,255,.6)}
+body.locked{overflow:hidden}
+body.locked .bar{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-color:transparent!important}
+body.locked .bar .logo{color:#fff}
+body.locked .langtog{color:rgba(255,255,255,.7)}
+body.locked .langtog b{color:#fff}
+@media(max-width:860px){ .burger{display:flex} }
+@media(min-width:861px){ .mnav{display:none} }
+
+/* evitar palavras sozinhas no fim de títulos e parágrafos */
+h1,h2,h3,h4,h5,h6,
+.nm,.mark,.wordmark,.hero h1,.head h1,.phead h1,.sec-head h2,.group h3,
+.intro-text,.closing p,.cta h2,.contact h2,.strip .nm,.bcard .ov h4,.sov h4,.post .ov b,
+.lg .nm,.sk{text-wrap:balance}
+
+p,li,figcaption,
+.lead,.sub,.cap,.slg,.note,.about-text p,.case-text p,.glassbox p,.sov p,.ov p,
+.bcard .ov p,.strip .panel .txt p,.sk p,.meta div p,.warn,.plab,.ph span,.pc span{text-wrap:pretty}
+
+@media(max-width:900px){
+  .strip .top{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline}
+  .strip .n{font-size:11px;padding-top:2px}
+  .strip .nm{font-size:clamp(1.4rem,6.6vw,2rem);line-height:1.04}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="row">
+    <a href="index.html" class="logo" title="Voltar ao início">JOÃO_BARBOSA<b>●</b></a>
+    <nav>
+      <a href="index.html" class="link">Home</a>
+      <a href="indice.html" class="link">Projetos</a>
+      <a href="sobre.html" class="link">Sobre</a>
+      <button class="langtog"><b>PT</b>/EN</button>
+      <a href="index.html#contacto" class="pill">Contacto ↗</a>
+      <button class="burger" aria-label="Menu" aria-expanded="false"><span class="bl"></span><span class="bl"></span><span class="bl"></span></button>
+    </nav>
+  </div>
+</header>
+
+<nav class="mnav" id="mnav">
+  <a href="index.html">Home</a>
+  <a href="indice.html" class="aqui">Projetos</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="index.html#contacto">Contacto</a>
+  <div class="mfoot">
+    <span class="mono">PT / EN</span>
+    <span class="mono">Porto, Portugal</span>
+  </div>
+</nav>
+
+<section class="head">
+  <div class="wrap">
+    <span class="mono rv"><span class="bull">●</span> Índice</span>
+    <h1 class="rv">Todo o<br>trabalho</h1>
+    <p class="sub rv">Todos os projetos em destaque.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="list rv" id="list">
+
+      <a href="annual-meeting.html" class="strip link">
+        <div class="face">
+          <div class="top">
+            <span class="n">Nº001</span>
+            <span class="nm">Annual Meeting</span>
+            <span class="cat">Identidade de evento</span>
+            <span class="yr">2026</span>
+          </div>
+          <span class="act">Ver projeto <span class="arw">↗</span></span>
+        </div>
+      </a>
+      <a href="green-venture.html" class="strip link">
+        <div class="face">
+          <div class="top">
+            <span class="n">Nº002</span>
+            <span class="nm">Green Venture</span>
+            <span class="cat">Sistema de marca</span>
+            <span class="yr">2026</span>
+          </div>
+          <span class="act">Ver projeto <span class="arw">↗</span></span>
+        </div>
+      </a>
+      <a href="palma.html" class="strip link">
+        <div class="face">
+          <div class="top">
+            <span class="n">Nº003</span>
+            <span class="nm">Palma</span>
+            <span class="cat">Identidade</span>
+            <span class="yr">2025</span>
+          </div>
+          <span class="act">Ver projeto <span class="arw">↗</span></span>
+        </div>
+      </a>
+      <a href="cjr-care.html" class="strip link">
+        <div class="face">
+          <div class="top">
+            <span class="n">Nº004</span>
+            <span class="nm">CJR Care</span>
+            <span class="cat">Naming · Identidade · Web</span>
+            <span class="yr">2026</span>
+          </div>
+          <span class="act">Ver projeto <span class="arw">↗</span></span>
+        </div>
+      </a>
+      <a href="gv-summit.html" class="strip link">
+        <div class="face">
+          <div class="top">
+            <span class="n">Nº005</span>
+            <span class="nm">GV Summit</span>
+            <span class="cat">Identidade de evento</span>
+            <span class="yr">Setembro 2026</span>
+          </div>
+          <span class="act">Ver projeto <span class="arw">↗</span></span>
+        </div>
+      </a>
+      <a href="sites.html" class="strip link">
+        <div class="face">
+          <div class="top">
+            <span class="n">Nº006</span>
+            <span class="nm">Sites &amp; landing pages</span>
+            <span class="cat">Web design</span>
+            <span class="yr">2025 — 2026</span>
+          </div>
+          <span class="act">Ver projeto <span class="arw">↗</span></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- POSTS -->
+<section class="posts" id="posts">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Posts &amp; conteúdo</h2>
+      <span class="mono">Instagram · LinkedIn</span>
+    </div>
+    <div class="pgrid">
+      <div class="post rv" tabindex="0" data-car><span class="kind">carrossel</span>
+        <div class="car"><div class="sl"><span class="lb">peça 1/4</span></div><div class="sl"><span class="lb">peça 2/4</span></div><div class="sl"><span class="lb">peça 3/4</span></div><div class="sl"><span class="lb">peça 4/4</span></div></div>
+        <div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div>
+        <div class="dots"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div>
+        <div class="ov"><span>Carrossel</span><b>[nome da marca]</b></div></div>
+      <div class="post rv" tabindex="0"><span class="kind">vídeo</span>
+        <div class="art"><span class="lb">peça 4:5</span></div>
+        <div class="ov"><span>Vídeo</span><b>[nome da marca]</b></div></div>
+      <div class="post rv" tabindex="0"><span class="kind">post</span>
+        <div class="art"><span class="lb">peça 4:5</span></div>
+        <div class="ov"><span>Post</span><b>[nome da marca]</b></div></div>
+      <div class="post rv" tabindex="0"><span class="kind">banner</span>
+        <div class="art"><span class="lb">peça 4:5</span></div>
+        <div class="ov"><span>Banner</span><b>Newsletter</b></div></div>
+      <div class="post rv" tabindex="0" data-car><span class="kind">carrossel</span>
+        <div class="car"><div class="sl"><span class="lb">peça 1/3</span></div><div class="sl"><span class="lb">peça 2/3</span></div><div class="sl"><span class="lb">peça 3/3</span></div></div>
+        <div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div>
+        <div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div>
+        <div class="ov"><span>Carrossel</span><b>[nome da marca]</b></div></div>
+      <div class="post rv" tabindex="0"><span class="kind">vídeo</span>
+        <div class="art"><span class="lb">peça 4:5</span></div>
+        <div class="ov"><span>Vídeo</span><b>[nome da marca]</b></div></div>
+      <div class="post rv" tabindex="0"><span class="kind">stories</span>
+        <div class="art"><span class="lb">peça 4:5</span></div>
+        <div class="ov"><span>Stories</span><b>[nome da marca]</b></div></div>
+      <div class="post rv" tabindex="0"><span class="kind">banner</span>
+        <div class="art"><span class="lb">peça 4:5</span></div>
+        <div class="ov"><span>Banner</span><b>Email interno</b></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <span class="mono"><span class="bull">●</span> João Barbosa — Porto, Portugal</span>
+    <span class="mono">Marketing Designer</span>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -5% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3*70)+'ms';io.observe(el)});
+
+
+/* faixas: expandir uma de cada vez */
+document.querySelectorAll('.strip.exp .act').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const strip=btn.closest('.strip'), panel=strip.querySelector('.panel');
+    const jaAberta=strip.classList.contains('open');
+    document.querySelectorAll('.strip.open').forEach(s=>{
+      s.classList.remove('open');
+      s.querySelector('.panel').style.maxHeight='0px';
+      const b=s.querySelector('.act'); if(b){b.setAttribute('aria-expanded','false'); b.firstChild.textContent='Abrir ';}
+    });
+    if(!jaAberta){
+      strip.classList.add('open');
+      panel.style.maxHeight=panel.scrollHeight+'px';
+      btn.setAttribute('aria-expanded','true');
+      btn.firstChild.textContent='Fechar ';
+    }
+  });
+});
+
+
+/* carrosséis nos posts */
+document.querySelectorAll('.post[data-car]').forEach(p=>{
+  const car=p.querySelector('.car'), dots=[...p.querySelectorAll('.dots i')];
+  const total=car.children.length; let i=0;
+  const ir=(n)=>{i=(n+total)%total;car.style.transform='translateX(-'+(i*100)+'%)';
+    dots.forEach((d,k)=>d.classList.toggle('on',k===i));};
+  p.querySelector('.next').addEventListener('click',e=>{e.stopPropagation();ir(i+1)});
+  p.querySelector('.prev').addEventListener('click',e=>{e.stopPropagation();ir(i-1)});
+  p.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'){e.preventDefault();ir(i+1)}
+    if(e.key==='ArrowLeft'){e.preventDefault();ir(i-1)}
+  });
+});
+
+/* menu mobile */
+(function(){
+  const b=document.querySelector('.burger'), m=document.querySelector('.mnav');
+  if(!b||!m) return;
+  const alterna=(abrir)=>{
+    const v = abrir===undefined ? !m.classList.contains('open') : abrir;
+    m.classList.toggle('open',v);
+    b.classList.toggle('on',v);
+    b.setAttribute('aria-expanded',v);
+    document.body.classList.toggle('locked',v);
+  };
+  b.addEventListener('click',()=>alterna());
+  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>alterna(false)));
+  addEventListener('keydown',e=>{ if(e.key==='Escape') alterna(false); });
+})();
+</script>
+</body>
+</html>
