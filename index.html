@@ -397,8 +397,7 @@ body.lbox-aberta{overflow:hidden}
   .logocard .nm,.real,.simlab{font-size:10.5px!important}
   .sov p,.ov p{font-size:12.5px!important}
 }
-.pc:has(img),.pc:has(video),.ph:has(img),.ph:has(video),.real:has(img),.real:has(video),.slide .ph{border:none!important;background-image:none}
-.slide .ph[style*="background-image"]{background-image:inherit}
+.pc:has(img),.pc:has(video),.real:has(img),.real:has(video),.slide .ph{border:none!important}
 
 
 
@@ -443,6 +442,12 @@ body.lbox-aberta{overflow:hidden}
 .slide.a-ver .sov{opacity:0!important;pointer-events:none}
 .slide.a-ver .nav{opacity:1!important;pointer-events:auto}
 .slide.a-ver .conta,.slide.a-ver .dots{opacity:1}
+
+/* ===== CARROSSEL DENTRO DA FAIXA ===== */
+.slide .ph{position:relative;overflow:hidden}
+.slide .car{position:absolute;inset:0;display:flex;transition:transform .45s var(--ease)}
+.slide .car .sl{min-width:100%;width:100%;height:100%;flex:0 0 100%;
+  background-size:cover;background-position:center;background-repeat:no-repeat}
 </style>
 </head>
 <body class="grain">
