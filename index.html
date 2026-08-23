@@ -57,7 +57,7 @@ img{display:block;max-width:100%}
 .hero{position:relative;height:100vh;min-height:640px;overflow:hidden;display:flex;align-items:center}
 /* camada 1 — projetos a derivar, NÍTIDOS */
 .hero-bg{position:absolute;inset:0;z-index:0;background:#0f1420}
-.float{position:absolute;border-radius:var(--r);opacity:.95;will-change:transform}
+.float{position:absolute;border-radius:var(--r);opacity:.95;will-change:transform;background-size:cover;background-position:center}
 .float .lab{position:absolute;bottom:10px;left:12px;font-family:"Space Mono",monospace;font-size:9px;letter-spacing:.05em;color:rgba(255,255,255,.6)}
 @keyframes drift1{0%{transform:translate(0,0)}50%{transform:translate(40px,-30px)}100%{transform:translate(0,0)}}
 @keyframes drift2{0%{transform:translate(0,0)}50%{transform:translate(-35px,25px)}100%{transform:translate(0,0)}}
@@ -315,15 +315,17 @@ p,li,figcaption,
   font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.62)}
 body.lbox-aberta{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.lbox,.lbox .alvo{transition:none}}
-.float.logo{background-color:#fff;background-size:72% auto;background-position:center;background-repeat:no-repeat;border-radius:10px}
+.float.logo{background-size:70% auto;background-position:center;background-repeat:no-repeat;border-radius:10px}
 
-/* destaques: logótipo da marca centrado sobre a cor dela */
+/* destaques: imagem limpa, cartão de vidro denso só onde está o texto */
 .preview .bg{background-size:cover;background-position:center}
-.preview .bg.marca{background-size:min(38%,320px) auto;background-repeat:no-repeat;background-position:70% 50%}
-.preview .bg::before{content:"";position:absolute;inset:0;z-index:1;
-  background:linear-gradient(100deg,rgba(12,16,22,.82) 0%,rgba(12,16,22,.55) 45%,rgba(12,16,22,.15) 100%)}
-.preview .bg.marca::before{background:linear-gradient(100deg,rgba(12,16,22,.86) 0%,rgba(12,16,22,.5) 52%,rgba(12,16,22,.1) 100%)}
-.preview .glassbox{z-index:2}
+.preview .glassbox{z-index:2;
+  background:rgba(16,20,27,.42);
+  backdrop-filter:blur(30px) saturate(120%) brightness(.72);-webkit-backdrop-filter:blur(30px) saturate(120%) brightness(.72);
+  border:1px solid rgba(255,255,255,.22)}
+.preview .glassbox p{color:#fff}
+.preview .glassbox .go{color:#fff;border-color:rgba(255,255,255,.6)}
+.preview .glassbox .go:hover{background:#fff;color:var(--dark)}
 </style>
 </head>
 <body class="grain">
@@ -357,13 +359,14 @@ body.lbox-aberta{overflow:hidden}
 <section class="hero" id="hero">
   <!-- camada 1: projetos a derivar (media de exemplo) -->
   <div class="hero-bg" id="herobg">
-    <div class="float logo" style="top:8%;left:6%;width:230px;height:150px;background-image:url(imagens/AN_foto_8.jpg);animation:drift1 18s ease-in-out infinite"></div>
-    <div class="float logo" style="top:14%;left:58%;width:250px;height:160px;background-image:url(imagens/Care_logo.jpg);animation:drift2 22s ease-in-out infinite"></div>
-    <div class="float logo" style="top:52%;left:10%;width:240px;height:120px;background-image:url(imagens/GV_Logo_Buzi-Companhia-solar.svg);animation:drift3 20s ease-in-out infinite"></div>
-    <div class="float logo" style="top:58%;left:46%;width:220px;height:150px;background-image:url(imagens/GV_Summit_logo.jpg);animation:drift4 24s ease-in-out infinite"></div>
-    <div class="float logo" style="top:28%;left:80%;width:230px;height:100px;background-image:url(imagens/Logo-EnerManica.png);animation:drift1 26s ease-in-out infinite"></div>
-    <div class="float logo" style="top:72%;left:74%;width:230px;height:120px;background-image:url(imagens/GV_Logo_Termoeletrica-Chokwe.svg);animation:drift2 19s ease-in-out infinite"></div>
-    <div class="float logo" style="top:4%;left:33%;width:210px;height:130px;background-image:url(imagens/GV_Logo_Companhia-Solar-Chokwe.svg);animation:drift3 23s ease-in-out infinite"></div>
+    <div class="float" style="top:6%;left:5%;width:250px;height:165px;background-image:url(imagens/AN_foto_8.jpg);;animation:drift1 18s ease-in-out infinite"></div>
+    <div class="float logo" style="top:13%;left:57%;width:230px;height:150px;background-image:url(imagens/Care_logo.jpg);background-color:#fff;animation:drift2 22s ease-in-out infinite"></div>
+    <div class="float" style="top:50%;left:9%;width:250px;height:170px;background-image:url(imagens/Palma_img4_real.jpg);;animation:drift3 20s ease-in-out infinite"></div>
+    <div class="float" style="top:57%;left:45%;width:240px;height:180px;background-image:url(imagens/GV_Summit_Caixas.jpg);;animation:drift4 24s ease-in-out infinite"></div>
+    <div class="float logo" style="top:27%;left:79%;width:220px;height:110px;background-image:url(imagens/Logo-EnerManica.png);background-color:#fff;animation:drift1 26s ease-in-out infinite"></div>
+    <div class="float" style="top:72%;left:73%;width:230px;height:160px;background-image:url(imagens/AN_foto_9.jpg);;animation:drift2 19s ease-in-out infinite"></div>
+    <div class="float" style="top:3%;left:32%;width:190px;height:230px;background-image:url(imagens/Care_social-media-post.jpg);;animation:drift3 23s ease-in-out infinite"></div>
+    <div class="float logo" style="top:40%;left:30%;width:210px;height:110px;background-image:url(imagens/GV_Logo_Buzi-Companhia-solar.svg);background-color:#fff;animation:drift4 21s ease-in-out infinite"></div>
   </div>
   <!-- camada 2: glass embaciado com máscara no cursor -->
   <div class="hero-glass" id="heroglass"></div>
@@ -410,7 +413,7 @@ body.lbox-aberta{overflow:hidden}
         <span class="proj-cat">Identidade · Sistema</span>
       </div>
       <div class="preview">
-        <div class="bg marca" style="background-color:#0F3D57;background-image:url(imagens/GV_Logo_Buzi-Companhia-solar.svg)"></div>
+        <div class="bg" style="background-image:url(imagens/GV_familia.jpg);background-size:cover;background-position:center"></div>
         <div class="glassbox">
           <p>Cinco marcas irmãs, lidas como família. <b>[texto provisório]</b></p>
           <a href="green-venture.html" class="go">Ver projeto ↗</a>
@@ -424,7 +427,7 @@ body.lbox-aberta{overflow:hidden}
         <span class="proj-cat">Branding · Editorial</span>
       </div>
       <div class="preview">
-        <div class="bg" style="background-image:url(imagens/Palma_img4_real.jpg);background-size:cover;background-position:72% center"></div>
+        <div class="bg" style="background-image:url(imagens/Palma_img4_real.jpg);background-size:cover;background-position:center 40%"></div>
         <div class="glassbox">
           <p>Identidade completa para um espaço de estética que também forma — do logótipo ao diploma de conclusão. <b>[texto provisório]</b></p>
           <a href="palma.html" class="go">Ver projeto ↗</a>
