@@ -109,7 +109,7 @@ img{display:block;max-width:100%}
 
 /* faixa deslizante */
 .reel{background:var(--dark);padding:7vh 0;overflow:hidden}
-.reel .head{margin-bottom:32px}
+
 .reel .head .mono{color:var(--dark-slate)}
 .reel .head h2{color:var(--dark-ink);font-size:clamp(1.4rem,2.6vw,2rem);font-weight:600;margin-top:8px}
 .slider{display:flex;gap:16px;width:max-content;animation:slide 30s linear infinite}
@@ -267,6 +267,36 @@ p,li,figcaption,
   border:1px solid var(--line);border-radius:100px;padding:16px 30px;transition:.28s var(--ease);background:transparent}
 .seemore a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);gap:16px}
 .seemore a .n{color:var(--accent);font-size:11px}
+
+
+@media(max-width:760px){}
+
+/* botão para os posts — ao lado do título da faixa */
+.reel .head{margin-bottom:32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.verposts{position:relative;display:inline-flex;align-items:center;gap:14px;flex-shrink:0;
+  padding:14px 12px 14px 22px;border-radius:100px;overflow:hidden;
+  background:rgba(255,255,255,.07);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
+  border:1px solid rgba(255,255,255,.2);transition:.35s var(--ease)}
+.verposts::before{content:"";position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .4s var(--ease);
+  background:linear-gradient(110deg,rgba(143,180,228,.34),rgba(63,100,145,.2))}
+.verposts:hover::before{opacity:1}
+.verposts:hover{border-color:rgba(255,255,255,.5);padding-right:14px;gap:16px}
+.verposts .lb{position:relative;z-index:1;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:rgba(255,255,255,.9);white-space:nowrap}
+.verposts .bola{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;flex-shrink:0;
+  background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;
+  transition:.35s var(--ease);overflow:hidden}
+.verposts:hover .bola{background:#fff}
+.verposts .bola span{font-family:"Space Mono",monospace;font-size:13px;color:#fff;line-height:1;transition:.35s var(--ease)}
+.verposts:hover .bola span{color:var(--dark);transform:translate(2px,-2px)}
+/* pontinhos a piscar, a sugerir conteúdo a chegar */
+.verposts .pts{position:relative;z-index:1;display:flex;gap:3px;margin-right:2px}
+.verposts .pts i{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4);animation:pulsa 1.8s infinite}
+.verposts .pts i:nth-child(2){animation-delay:.25s}
+.verposts .pts i:nth-child(3){animation-delay:.5s}
+@keyframes pulsa{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.35)}}
+@media(max-width:700px){.reel .head{flex-direction:column;align-items:flex-start;gap:16px}}
+@media(prefers-reduced-motion:reduce){.verposts .pts i{animation:none}}
 </style>
 </head>
 <body class="grain">
@@ -400,6 +430,11 @@ p,li,figcaption,
 <section class="reel">
   <div class="wrap head rv">
     <h2>Um pouco de tudo</h2>
+    <a href="indice.html#posts" class="verposts">
+      <span class="pts"><i></i><i></i><i></i></span>
+      <span class="lb">Ver todos os posts</span>
+      <span class="bola"><span>↗</span></span>
+    </a>
   </div>
   <div class="track-wrap"><div class="slider" id="slider">
     <div class="slide" tabindex="0"><div class="ph"><span><b>PEÇA</b><br>4:5</span><div class="sov"><span class="tg">Redes sociais</span><h4>Carrossel</h4><p>Conteúdo para Instagram, dentro da linguagem da marca.</p></div></div><div class="cap">Social · carrossel</div></div>
@@ -418,6 +453,7 @@ p,li,figcaption,
 
 
 
+
 <!-- CONTACTO -->
 <section class="contact" id="contacto">
   <div class="wrap">
@@ -427,7 +463,7 @@ p,li,figcaption,
         <span class="lb">Email</span>
         <span class="vl">[o teu email] <span>↗</span></span>
       </a>
-      <a href="https://linkedin.com/in/SUBSTITUIR" target="_blank" rel="noopener">
+      <a href="https://www.linkedin.com/in/joao-barbosa-0b176a158/" target="_blank" rel="noopener">
         <span class="lb">LinkedIn</span>
         <span class="vl">O meu perfil <span>↗</span></span>
       </a>

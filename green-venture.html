@@ -53,7 +53,7 @@ img{display:block;max-width:100%}
 .warn{background:#FFF4E5;border:1px solid #F0D9B5;border-radius:var(--r);padding:16px 20px;margin:0 0 30px;font-family:"Space Mono",monospace;font-size:11px;line-height:1.9;color:#7A5B2E;letter-spacing:.03em}
 
 /* peças simuladas */
-.pc{position:relative;overflow:hidden;border-radius:var(--r);background:#0f1420}
+.pc{position:relative;overflow:hidden;border-radius:var(--r);background:transparent}
 .simlab{position:absolute;top:10px;right:10px;z-index:5;font-family:"Space Mono",monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);background:rgba(0,0,0,.28);padding:3px 7px;border-radius:5px}
 .simlab.dk{color:rgba(0,0,0,.4);background:rgba(255,255,255,.55)}
 .a169{aspect-ratio:16/9}.a43{aspect-ratio:4/3}.a45{aspect-ratio:4/5}.a11{aspect-ratio:1}
@@ -177,10 +177,18 @@ h1,h2,h3,h4,h5,h6,
 p,li,figcaption,
 .lead,.sub,.cap,.slg,.note,.about-text p,.case-text p,.glassbox p,.sov p,.ov p,
 .bcard .ov p,.strip .panel .txt p,.sk p,.meta div p,.warn,.plab,.ph span,.pc span{text-wrap:pretty}
-.pc img{width:100%;height:100%;object-fit:cover;display:block}
-.pc:has(img){border-style:solid}
+.pc img{width:100%;height:100%;object-fit:contain;display:block}
+.pc:has(img){border:none;background:transparent}
 .pc.lg img{object-fit:contain}
 .fam .cell img{width:100%;max-width:150px;height:auto;object-fit:contain}
+
+/* grelha de logótipos — cartões brancos iguais */
+.logos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.logocard{background:#fff;border-radius:var(--r);aspect-ratio:3/2;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:18px;padding:9% 11%;border:1px solid var(--line)}
+.logocard img{width:100%;max-height:52%;object-fit:contain}
+.logocard .nm{font-family:"Space Mono",monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);text-align:center;line-height:1.9}
+@media(max-width:860px){.logos{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -231,7 +239,7 @@ p,li,figcaption,
 <!-- ABERTURA: A FAMÍLIA -->
 <section>
   <div class="wrap rv">
-    <div class="pc a169 fam"><span class="parent">Green Venture</span><div class="grid5"><div class="cell"><img src="imagens/GV_Logo_Buzi-Companhia-solar.svg" alt="Central Solar do Buzi" style="width:100%;max-width:150px;height:auto"></div><div class="cell"><img src="imagens/GV_Logo_Companhia-Solar-Chokwe.svg" alt="Companhia Solar do Chokwé" style="width:100%;max-width:150px;height:auto"></div><div class="cell"><img src="imagens/GV_Logo_Termoeletrica-Chokwe.svg" alt="Central Termoelétrica do Chokwé" style="width:100%;max-width:150px;height:auto"></div><div class="cell"><img src="imagens/GV_Logo_EnerManica.svg" alt="EnerManica" style="width:100%;max-width:150px;height:auto"></div><div class="cell"><img src="imagens/GV_Logo_EnerNamialo.svg" alt="EnerNamialo" style="width:100%;max-width:150px;height:auto"></div></div></div>
+    <div class="logos"><div class="logocard"><img src="imagens/GV_Logo_Buzi-Companhia-solar.svg" alt="Central Solar do Buzi"><span class="nm">Central Solar do Buzi</span></div><div class="logocard"><img src="imagens/GV_Logo_Companhia-Solar-Chokwe.svg" alt="Companhia Solar do Chokwé"><span class="nm">Companhia Solar do Chokwé</span></div><div class="logocard"><img src="imagens/GV_Logo_Termoeletrica-Chokwe.svg" alt="Central Termoelétrica do Chokwé"><span class="nm">Central Termoelétrica do Chokwé</span></div><div class="logocard"><img src="imagens/Logo-EnerManica.png" alt="EnerManica"><span class="nm">EnerManica</span></div><div class="logocard"><img src="imagens/EnerNamialo.png" alt="EnerNamialo"><span class="nm">EnerNamialo</span></div><div class="logocard" style="background:linear-gradient(135deg,#38D430,#0097CE);border:none;justify-content:center"><span class="nm" style="color:#fff;font-size:11px;letter-spacing:.18em">Green<br>Venture</span></div></div></div>
     <div class="cap">As cinco marcas lado a lado — desenhos diferentes, mesma família</div>
   </div>
 </section>
@@ -285,12 +293,11 @@ p,li,figcaption,
 <div class="wrap">
   <div class="nextnav">
     <a href="annual-meeting.html">← Annual Meeting</a>
-    <a href="index.html" style="text-align:right">
+    <a href="palma.html" style="text-align:right">
       <span class="mono" style="display:block;margin-bottom:6px">Projeto seguinte</span>
       <span class="next">Palma →</span>
     </a>
   </div>
-</div>
 
 <footer>
   <div class="wrap row">

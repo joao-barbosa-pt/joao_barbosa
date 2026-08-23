@@ -73,6 +73,8 @@ img{display:block;max-width:100%}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .pc{position:relative;overflow:hidden;border-radius:var(--r);background:#fff;border:1px solid var(--line)}
 .pc img{width:100%;height:100%;object-fit:cover}
+.pc.papel img{object-fit:contain}
+.pc.papel{background:#fff!important}
 .a43{aspect-ratio:4/3}.a45{aspect-ratio:4/5}.a169{aspect-ratio:16/9}.a11{aspect-ratio:1}
 .real{position:absolute;top:10px;right:10px;z-index:5;font-family:"Space Mono",monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#4a7c59;background:rgba(255,255,255,.9);padding:3px 7px;border-radius:5px}
 .sim{position:absolute;top:10px;right:10px;z-index:5;font-family:"Space Mono",monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.4);background:rgba(255,255,255,.6);padding:3px 7px;border-radius:5px}
@@ -147,6 +149,9 @@ h1,h2,h3,h4,h5,h6,
 p,li,figcaption,
 .lead,.sub,.cap,.slg,.note,.about-text p,.case-text p,.glassbox p,.sov p,.ov p,
 .bcard .ov p,.strip .panel .txt p,.sk p,.meta div p,.warn,.plab,.ph span,.pc span{text-wrap:pretty}
+
+.pc:has(img),.pc:has(video){border:none;background:transparent}
+.pc video{width:100%;height:100%;object-fit:cover;display:block}
 </style>
 </head>
 <body>
@@ -237,12 +242,12 @@ p,li,figcaption,
   <div class="wrap">
     <div class="ghead rv"><h3>A marca no espaço</h3><span class="mono">Fotografias</span></div>
     <div class="g2 rv">
-      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img4_real.jpeg" alt="Logótipo em relevo na parede da loja" style="width:100%;height:100%;object-fit:cover"></div>
-      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img2_real.jpeg" alt="Logótipo na parede e cartão de visita" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img4_real.jpeg" alt="Logótipo em relevo na parede da loja"></div>
+      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img2_real.jpeg" alt="Logótipo na parede e cartão de visita"></div>
     </div>
     <div class="g2 rv" style="margin-top:16px">
-      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img1_real.jpeg" alt="O espaço da loja" style="width:100%;height:100%;object-fit:cover"></div>
-      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img3_real.jpeg" alt="Cartão de visita em detalhe" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img1_real.jpeg" alt="O espaço da loja"></div>
+      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img3_real.jpeg" alt="Cartão de visita em detalhe"></div>
     </div>
     <div class="cap">A palmeira dentro do P, em relevo na parede — e o cartão no balcão</div>
   </div>
@@ -250,7 +255,7 @@ p,li,figcaption,
 
 <section class="group">
   <div class="wrap">
-    <div class="ghead rv"><h3>A paleta</h3><span class="mono">01 / 04</span></div>
+    <div class="ghead rv"><h3>A paleta</h3><span class="mono">01 / 02</span></div>
     <div class="pal rv">
       <div class="sw" style="background:var(--pa)"><span style="color:#fff">#A6977F</span></div>
       <div class="sw" style="background:var(--pa-lt)"><span style="color:#fff">#B5A58F</span></div>
@@ -260,45 +265,25 @@ p,li,figcaption,
   </div>
 </section>
 
-<section class="group">
-  <div class="wrap">
-    <div class="ghead rv"><h3>Cartão de visita</h3><span class="mono">02 / 04</span></div>
-    <div class="g2 rv">
-      <div class="pc a43"><span class="real">peça real</span><img src="imagens/cartao-frente.png" alt="Cartão de visita Palma — frente"></div>
-      <div class="pc a43"><span class="real">peça real</span><img src="imagens/cartao-verso.png" alt="Cartão de visita Palma — verso"></div>
-    </div>
-    <div class="cap">Frente e verso — o taupe sólido a fechar</div>
-  </div>
-</section>
+
+
+
 
 <section class="group">
   <div class="wrap">
-    <div class="ghead rv"><h3>Voucher oferta</h3><span class="mono">03 / 04</span></div>
-    <div class="g2 rv">
-      <div class="pc a169" style="grid-column:1/-1"><span class="real">peça real</span><img src="imagens/voucher-frente.png" alt="Voucher Palma — frente"></div>
+    <div class="ghead rv"><h3>As peças</h3><span class="mono">02 / 02</span></div>
+    <div class="g3 rv">
+      <div class="pc a43"><img src="imagens/Palma_Mockup_cartao.png" alt="Cartão de visita"></div>
+      <div class="pc a43"><img src="imagens/Palma_Mockup_voucher.png" alt="Voucher oferta"></div>
+      <div class="pc a43"><img src="imagens/Palma_Mockup_Cartao-1.jpg" alt="Cartão de visita — detalhe"></div>
     </div>
     <div class="g2 rv" style="margin-top:16px">
-      <div class="pc a169"><span class="real">peça real</span><img src="imagens/voucher-verso.png" alt="Voucher Palma — verso"></div>
+      <div class="pc a43"><img src="imagens/Palma_Mockup_Formacao.jpg" alt="Material de formação — diploma e manual"></div>
+      <div class="pc a43"><img src="imagens/Palma_Mockup_Precario.jpg" alt="Preçário"></div>
+    </div>
       
     </div>
-    <div class="cap">A palmeira em marca de água — o motivo que saiu do logótipo</div>
-  </div>
-</section>
-
-<section class="group">
-  <div class="wrap">
-    <div class="ghead rv"><h3>Formação e restantes peças</h3><span class="mono">04 / 04</span></div>
-    <div class="g3 rv">
-      <div class="pc a45 ph"><span>diploma<br>de conclusão<br>4:5</span></div>
-      <div class="pc a45 ph"><span>folha A3<br>de formação<br>4:5</span></div>
-      <div class="pc a45 ph"><span>preçário<br>4:5</span></div>
-    </div>
-    <div class="g3 rv" style="margin-top:16px">
-      <div class="pc a11 ph"><span>flyer<br>1:1</span></div>
-      <div class="pc a11 ph"><span>template<br>de redes · 1:1</span></div>
-      <div class="pc a11 ph"><span>template<br>de redes · 1:1</span></div>
-    </div>
-    <div class="cap">O material da formação — desenhar para quem ensina, não só para quem vende</div>
+    <div class="cap">Cartão, voucher, preçário e o material da formação — desenhar para quem ensina, não só para quem vende</div>
   </div>
 </section>
 
@@ -312,12 +297,11 @@ p,li,figcaption,
 <div class="wrap">
   <div class="nextnav">
     <a href="green-venture.html">← Green Venture</a>
-    <a href="index.html" style="text-align:right">
-      <span class="mono" style="display:block;margin-bottom:6px">Voltar</span>
-      <span class="next">Todos os projetos →</span>
+    <a href="cjr-care.html" style="text-align:right">
+      <span class="mono" style="display:block;margin-bottom:6px">Projeto seguinte</span>
+      <span class="next">CJR Care →</span>
     </a>
   </div>
-</div>
 
 <footer>
   <div class="wrap row">
