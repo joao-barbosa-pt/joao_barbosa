@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>João Barbosa — v5</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#12151A">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
@@ -29,7 +34,7 @@ img{display:block;max-width:100%}
 .ph{position:relative;width:100%;background:var(--paper2);border:1px dashed var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center;border-radius:var(--r)}
 .ph span{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.03em;color:var(--slate);text-align:center;padding:14px;line-height:1.7}
 .ph b{color:var(--ink)}
-.ph::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 15px,rgba(150,160,175,.05) 15px 16px)}
+
 
 /* topo */
 .bar{height:var(--bar-h);display:flex;align-items:center;position:fixed;top:0;left:0;right:0;z-index:60;background:transparent;transition:background .3s,border-color .3s;padding:0 32px;border-bottom:1px solid transparent}
@@ -98,7 +103,7 @@ img{display:block;max-width:100%}
 .proj-cat{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-left:auto}
 .proj h3{font-size:clamp(1.8rem,4vw,3rem);font-weight:600;letter-spacing:-.03em;line-height:1}
 .preview{position:relative;border-radius:var(--r);overflow:hidden;min-height:440px;display:flex;align-items:flex-end;margin-top:22px}
-.preview .bg{position:absolute;inset:0;z-index:0;background:linear-gradient(120deg,#2d4a6e,#43607f 45%,#6d5f86 100%);background-size:180% 180%;animation:grad 16s var(--ease) infinite alternate}
+.preview .bg{position:absolute;inset:0;z-index:0;background:linear-gradient(120deg,#2d4a6e,#43607f 45%,#6d5f86 100%);background-size:180% 180%;}
 @keyframes grad{to{background-position:100% 100%}}
 .preview .bg.b2{background:linear-gradient(120deg,#3a4250,#5a6270 50%,#8a7d74 100%)}
 .glassbox{position:relative;z-index:1;margin:22px;padding:24px 28px;max-width:480px;background:rgba(255,255,255,.12);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);border:1px solid rgba(255,255,255,.25);border-radius:var(--r)}
@@ -317,15 +322,108 @@ body.lbox-aberta{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.lbox,.lbox .alvo{transition:none}}
 .float.logo{background-size:70% auto;background-position:center;background-repeat:no-repeat;border-radius:10px}
 
-/* destaques: imagem limpa, cartão de vidro denso só onde está o texto */
+/* destaques: cartão que se adapta ao brilho da imagem */
 .preview .bg{background-size:cover;background-position:center}
 .preview .glassbox{z-index:2;
-  background:rgba(16,20,27,.42);
-  backdrop-filter:blur(30px) saturate(120%) brightness(.72);-webkit-backdrop-filter:blur(30px) saturate(120%) brightness(.72);
-  border:1px solid rgba(255,255,255,.22)}
+  background:rgba(16,20,27,.46);
+  backdrop-filter:blur(28px) saturate(115%) brightness(.7);-webkit-backdrop-filter:blur(28px) saturate(115%) brightness(.7);
+  border:1px solid rgba(255,255,255,.2)}
 .preview .glassbox p{color:#fff}
-.preview .glassbox .go{color:#fff;border-color:rgba(255,255,255,.6)}
+.preview .glassbox .go{color:#fff;border-color:rgba(255,255,255,.62)}
 .preview .glassbox .go:hover{background:#fff;color:var(--dark)}
+/* imagem clara → cartão claro com texto escuro */
+.preview.clara .glassbox{background:rgba(255,255,255,.62);
+  backdrop-filter:blur(28px) saturate(115%) brightness(1.12);-webkit-backdrop-filter:blur(28px) saturate(115%) brightness(1.12);
+  border-color:rgba(0,0,0,.12)}
+.preview.clara .glassbox p{color:var(--ink)}
+.preview.clara .glassbox .go{color:var(--ink);border-color:rgba(0,0,0,.4)}
+.preview.clara .glassbox .go:hover{background:var(--ink);color:#fff}
+
+/* ===== HERO NO TELEMÓVEL: peças mais pequenas, longe do texto ===== */
+@media(max-width:700px){
+  .float{transform:scale(.52);opacity:.9}
+  /* afastar as peças da coluna central onde está o texto */
+  .hero-bg .float:nth-child(1){top:2%!important;left:-4%!important}
+  .hero-bg .float:nth-child(2){top:5%!important;left:58%!important}
+  .hero-bg .float:nth-child(3){top:60%!important;left:-6%!important}
+  .hero-bg .float:nth-child(4){top:72%!important;left:52%!important}
+  .hero-bg .float:nth-child(5){top:20%!important;left:74%!important}
+  .hero-bg .float:nth-child(6){top:84%!important;left:8%!important}
+  .hero-bg .float:nth-child(7){top:14%!important;left:-8%!important}
+  .hero-bg .float:nth-child(8){top:88%!important;left:66%!important}
+  /* mais desfoque para o texto ganhar sempre */
+  .glass{backdrop-filter:blur(34px) saturate(120%)!important;-webkit-backdrop-filter:blur(34px) saturate(120%)!important}
+  /* véu por trás do bloco de texto, para leitura garantida */
+  .hero .wrap::before{content:"";position:absolute;inset:-4% -6%;z-index:-1;
+    background:radial-gradient(120% 80% at 20% 45%,rgba(12,16,22,.82) 0%,rgba(12,16,22,.45) 55%,transparent 100%)}
+  .hero .wrap{position:relative;z-index:3}
+}
+
+/* ===== ALVOS DE TOQUE: mínimo 44px ===== */
+@media(max-width:860px){
+  .bar .logo{display:inline-flex;align-items:center;min-height:44px}
+  .langtog{min-height:44px;min-width:52px;padding:0 8px}
+  .burger{width:44px;height:44px}
+  .nextnav a{display:inline-flex;align-items:center;min-height:44px}
+  .go,.gbtn,.seemore a,.verposts{min-height:44px;display:inline-flex;align-items:center}
+  .reel .rnav button{width:48px;height:48px}
+  .post .nav button{width:40px;height:40px}
+  .clist a{min-height:56px}
+  .strip .act{min-height:44px;display:inline-flex;align-items:center}
+}
+
+/* ===== TEXTO MÍNIMO 11px NO TELEMÓVEL ===== */
+@media(max-width:700px){
+  .cap,.proj-cat,.mono,.slide .cap,.tg,.kind,.lb,.slg{font-size:11px!important}
+  .logocard .nm,.real,.simlab{font-size:10px!important}
+}
+
+/* ===== AUDITORIA MOBILE: alvos de toque e legibilidade ===== */
+@media(max-width:860px){
+  .bar .logo{display:inline-flex;align-items:center;min-height:44px}
+  .langtog{min-height:44px;min-width:52px;padding:0 8px}
+  .burger{width:44px;height:44px}
+  .nextnav a{display:inline-flex;align-items:center;min-height:44px}
+  .go,.gbtn,.seemore a,.verposts,.pill{min-height:44px;display:inline-flex;align-items:center}
+  .reel .rnav button{width:48px;height:48px}
+  .post .nav button{width:42px;height:42px}
+  .clist a{min-height:56px}
+  .strip .act,.act{min-height:44px;display:inline-flex;align-items:center}
+  .mnav a{min-height:52px;display:flex;align-items:center}
+}
+@media(max-width:700px){
+  .cap,.proj-cat,.mono,.slide .cap,.tg,.kind,.lb,.slg,.gbtn,.go{font-size:11px!important}
+  .logocard .nm,.real,.simlab{font-size:10.5px!important}
+  .sov p,.ov p{font-size:12.5px!important}
+}
+.pc:has(img),.pc:has(video),.ph:has(img),.ph:has(video),.real:has(img),.real:has(video),.slide .ph{border:none!important;background-image:none}
+.slide .ph[style*="background-image"]{background-image:inherit}
+
+/* ===== FAIXA: peças com várias imagens (carrossel) ===== */
+.slide .ph{position:relative;overflow:hidden}
+.slide .car{position:absolute;inset:0;display:flex;transition:transform .45s var(--ease)}
+.slide .car .sl{min-width:100%;height:100%;flex-shrink:0;background-size:cover;background-position:center}
+.slide .nav{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:space-between;
+  padding:0 8px;opacity:0;transition:opacity .3s var(--ease);pointer-events:none}
+.slide:hover .nav,.slide:focus-within .nav{opacity:1;pointer-events:auto}
+.slide .nav button{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.5);
+  background:rgba(255,255,255,.22);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  color:#fff;font-family:"Space Mono",monospace;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.slide .nav button:hover{background:#fff;color:var(--dark)}
+.slide .dots{position:absolute;bottom:10px;left:0;right:0;z-index:5;display:flex;gap:5px;justify-content:center;pointer-events:none}
+.slide .dots i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.45);transition:.3s}
+.slide .dots i.on{background:#fff;width:15px;border-radius:3px}
+.slide .conta{position:absolute;top:10px;right:10px;z-index:5;font-family:"Space Mono",monospace;font-size:9px;
+  letter-spacing:.06em;color:#fff;background:rgba(0,0,0,.42);backdrop-filter:blur(8px);padding:4px 8px;border-radius:20px}
+@media(max-width:860px){.slide .nav{opacity:1;pointer-events:auto}.slide .nav button{width:38px;height:38px}}
+
+/* peças com carrossel: painel só em baixo, setas livres */
+.slide[data-car] .sov{top:auto;height:auto;padding:16px 14px 34px;
+  background:linear-gradient(to top,rgba(10,13,18,.92) 0%,rgba(10,13,18,.72) 60%,transparent 100%);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.slide[data-car] .dots{bottom:8px}
+.slide[data-car] .sov h4{font-size:1rem}
+.slide[data-car] .sov p{font-size:12.5px;opacity:.85}
 </style>
 </head>
 <body class="grain">
@@ -395,13 +493,13 @@ body.lbox-aberta{overflow:hidden}
     <div class="proj rv">
       <div class="proj-top">
         <span class="proj-num">Nº001</span>
-        <h3>Annual Meeting CJR Renewables</h3>
+        <h3>Annual Meeting — CJR Renewables</h3>
         <span class="proj-cat">Eventos · Identidade</span>
       </div>
       <div class="preview">
         <div class="bg" style="background-image:url(imagens/AN_foto_8.jpg);background-size:cover;background-position:center"></div>
         <div class="glassbox">
-          <p>Sistema de identidade completo logótipo, agendas, badges e landing page. <b>[texto provisório]</b></p>
+          <p>Sistema de identidade completo — logótipo, agendas, badges e landing page. <b>[texto provisório]</b></p>
           <a href="annual-meeting.html" class="go">Ver projeto ↗</a>
         </div>
       </div>
@@ -409,7 +507,7 @@ body.lbox-aberta{overflow:hidden}
     <div class="proj rv">
       <div class="proj-top">
         <span class="proj-num">Nº002</span>
-        <h3>Green Venture cinco marcas</h3>
+        <h3>Green Venture — cinco marcas</h3>
         <span class="proj-cat">Identidade · Sistema</span>
       </div>
       <div class="preview">
@@ -423,13 +521,13 @@ body.lbox-aberta{overflow:hidden}
     <div class="proj rv">
       <div class="proj-top">
         <span class="proj-num">Nº003</span>
-        <h3>Palma estética & formação</h3>
+        <h3>Palma — estética & formação</h3>
         <span class="proj-cat">Branding · Editorial</span>
       </div>
       <div class="preview">
-        <div class="bg" style="background-image:url(imagens/Palma_img4_real.jpg);background-size:cover;background-position:center 40%"></div>
+        <div class="bg" style="background-image:url(imagens/Palma_img_destaque.jpg);background-size:cover;background-position:center"></div>
         <div class="glassbox">
-          <p>Identidade completa para um espaço de estética.</p>
+          <p>Identidade completa para um espaço de estética que também forma — do logótipo ao diploma de conclusão. <b>[texto provisório]</b></p>
           <a href="palma.html" class="go">Ver projeto ↗</a>
         </div>
       </div>
@@ -444,7 +542,7 @@ body.lbox-aberta{overflow:hidden}
   <div class="wrap intro-grid">
     <div class="intro-left">
       <span class="mono rv"><span class="bull">●</span> Quem sou</span>
-      <p class="intro-text rv">Sou o João, Marketing Designer no Porto. Gosto da diversidade como web, vídeo, redes sociais e de fugir ao óbvio para fazer uma marca destacar-se.</p>
+      <p class="intro-text rv">Sou o João, Marketing Designer no Porto. Gosto da diversidade — web, vídeo, redes — e de fugir ao óbvio para fazer uma marca destacar-se.</p>
       <a href="sobre.html" class="intro-cta rv">Ver mais ↗</a>
     </div>
     <div class="intro-right rv">
@@ -467,22 +565,18 @@ body.lbox-aberta{overflow:hidden}
     </a>
   </div>
   <div class="track-wrap"><div class="slider" id="slider">
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/Care_logo.jpg)"><div class="sov"><span class="tg">Identidade</span><h4>CJR Care</h4><p>Naming e logótipo para o programa de responsabilidade social.</p><a href="cjr-care.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Identidade · CJR Care</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/AN_foto_9.jpg)"><div class="sov"><span class="tg">Evento</span><h4>Badges</h4><p>Identificação dos participantes, com o gradiente do evento.</p><a href="annual-meeting.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Evento · Badges</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/GV_Summit_Cracha.jpg)"><div class="sov"><span class="tg">Evento</span><h4>Crachás GV Summit</h4><p>Peças para os dois dias do encontro.</p><a href="gv-summit.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Evento · Crachás GV Summit</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/Care_social-media-post.jpg)"><div class="sov"><span class="tg">Redes sociais</span><h4>Post</h4><p>Conteúdo dentro da linguagem da marca.</p></div></div><div class="cap">Redes sociais · Post</div></div>
+    <div class="slide" tabindex="0" data-car><div class="ph"><div class="car"><div class="sl" style="background-image:url(imagens/Care_logo.jpg)"></div><div class="sl" style="background-image:url(imagens/Care_logo_construcao.jpg)"></div><div class="sl" style="background-image:url(imagens/Care_social-media-post.jpg)"></div></div><span class="conta">1/3</span><div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div><div class="sov"><span class="tg">Identidade</span><h4>CJR Care</h4><p>Naming, logótipo e aplicações.</p><a href="cjr-care.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Identidade · CJR Care</div></div>
+    <div class="slide" tabindex="0" data-car><div class="ph"><div class="car"><div class="sl" style="background-image:url(imagens/AN_foto_9.jpg)"></div><div class="sl" style="background-image:url(imagens/AN_foto_10.jpg)"></div><div class="sl" style="background-image:url(imagens/AN_foto_11.jpg)"></div></div><span class="conta">1/3</span><div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div><div class="sov"><span class="tg">Evento</span><h4>Annual Meeting</h4><p>Badges, roll-up e detalhes no local.</p><a href="annual-meeting.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Evento · Annual Meeting</div></div>
+    <div class="slide" tabindex="0" data-car><div class="ph"><div class="car"><div class="sl" style="background-image:url(imagens/GV_Summit_Cracha.jpg)"></div><div class="sl" style="background-image:url(imagens/GV_Summit_lanyard.jpg)"></div><div class="sl" style="background-image:url(imagens/GV_Summit_Polo.jpg)"></div></div><span class="conta">1/3</span><div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div><div class="sov"><span class="tg">Evento</span><h4>GV Summit</h4><p>Crachás, lanyard e polo.</p><a href="gv-summit.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Evento · GV Summit</div></div>
     <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/GV_Summit_Caixas.jpg)"><div class="sov"><span class="tg">Espaço</span><h4>Caixas</h4><p>Suporte de informação que substituiu os roll-ups.</p><a href="gv-summit.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Espaço · Caixas</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/Palma_Mockup_Precario.jpg)"><div class="sov"><span class="tg">Impressos</span><h4>Preçário</h4><p>Peça para a loja, com a palmeira em marca de água.</p><a href="palma.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Impressos · Preçário</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/AN_foto_landing-page_13.jpg)"><div class="sov"><span class="tg">Web</span><h4>Landing page</h4><p>Programa e oradores do encontro anual.</p><a href="annual-meeting.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Web · Landing page</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/GV_Summit_Polo.jpg)"><div class="sov"><span class="tg">Merch</span><h4>Polo</h4><p>Para os dois dias de team building.</p><a href="gv-summit.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Merch · Polo</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/Care_logo.jpg)"><div class="sov"><span class="tg">Identidade</span><h4>CJR Care</h4><p>Naming e logótipo para o programa de responsabilidade social.</p><a href="cjr-care.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Identidade · CJR Care</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/AN_foto_9.jpg)"><div class="sov"><span class="tg">Evento</span><h4>Badges</h4><p>Identificação dos participantes, com o gradiente do evento.</p><a href="annual-meeting.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Evento · Badges</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/GV_Summit_Cracha.jpg)"><div class="sov"><span class="tg">Evento</span><h4>Crachás GV Summit</h4><p>Peças para os dois dias do encontro.</p><a href="gv-summit.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Evento · Crachás GV Summit</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/Care_social-media-post.jpg)"><div class="sov"><span class="tg">Redes sociais</span><h4>Post</h4><p>Conteúdo dentro da linguagem da marca.</p></div></div><div class="cap">Redes sociais · Post</div></div>
+    <div class="slide" tabindex="0" data-car><div class="ph"><div class="car"><div class="sl" style="background-image:url(imagens/Palma_Mockup_Precario.jpg)"></div><div class="sl" style="background-image:url(imagens/Palma_Mockup_cartao.png)"></div><div class="sl" style="background-image:url(imagens/Palma_Mockup_voucher.png)"></div></div><span class="conta">1/3</span><div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div><div class="sov"><span class="tg">Impressos</span><h4>Palma</h4><p>Preçário, cartão e voucher.</p><a href="palma.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Impressos · Palma</div></div>
+    <div class="slide" tabindex="0" data-car><div class="ph"><div class="car"><div class="sl" style="background-image:url(imagens/AN_foto_landing-page_13.jpg)"></div><div class="sl" style="background-image:url(imagens/AN_print_detalhe-landing-page_14.png)"></div></div><span class="conta">1/2</span><div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div><div class="dots"><i class="on"></i><i class=""></i></div><div class="sov"><span class="tg">Web</span><h4>Landing page</h4><p>Programa e oradores do encontro anual.</p><a href="annual-meeting.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Web · Landing page</div></div>
+    <div class="slide" tabindex="0" data-car><div class="ph"><div class="car"><div class="sl" style="background-image:url(imagens/Care_logo.jpg)"></div><div class="sl" style="background-image:url(imagens/Care_logo_construcao.jpg)"></div><div class="sl" style="background-image:url(imagens/Care_social-media-post.jpg)"></div></div><span class="conta">1/3</span><div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div><div class="sov"><span class="tg">Identidade</span><h4>CJR Care</h4><p>Naming, logótipo e aplicações.</p><a href="cjr-care.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Identidade · CJR Care</div></div>
+    <div class="slide" tabindex="0" data-car><div class="ph"><div class="car"><div class="sl" style="background-image:url(imagens/AN_foto_9.jpg)"></div><div class="sl" style="background-image:url(imagens/AN_foto_10.jpg)"></div><div class="sl" style="background-image:url(imagens/AN_foto_11.jpg)"></div></div><span class="conta">1/3</span><div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div><div class="sov"><span class="tg">Evento</span><h4>Annual Meeting</h4><p>Badges, roll-up e detalhes no local.</p><a href="annual-meeting.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Evento · Annual Meeting</div></div>
+    <div class="slide" tabindex="0" data-car><div class="ph"><div class="car"><div class="sl" style="background-image:url(imagens/GV_Summit_Cracha.jpg)"></div><div class="sl" style="background-image:url(imagens/GV_Summit_lanyard.jpg)"></div><div class="sl" style="background-image:url(imagens/GV_Summit_Polo.jpg)"></div></div><span class="conta">1/3</span><div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div><div class="sov"><span class="tg">Evento</span><h4>GV Summit</h4><p>Crachás, lanyard e polo.</p><a href="gv-summit.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Evento · GV Summit</div></div>
     <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/GV_Summit_Caixas.jpg)"><div class="sov"><span class="tg">Espaço</span><h4>Caixas</h4><p>Suporte de informação que substituiu os roll-ups.</p><a href="gv-summit.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Espaço · Caixas</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/Palma_Mockup_Precario.jpg)"><div class="sov"><span class="tg">Impressos</span><h4>Preçário</h4><p>Peça para a loja, com a palmeira em marca de água.</p><a href="palma.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Impressos · Preçário</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/AN_foto_landing-page_13.jpg)"><div class="sov"><span class="tg">Web</span><h4>Landing page</h4><p>Programa e oradores do encontro anual.</p><a href="annual-meeting.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Web · Landing page</div></div>
-    <div class="slide" tabindex="0"><div class="ph" style="background-image:url(imagens/GV_Summit_Polo.jpg)"><div class="sov"><span class="tg">Merch</span><h4>Polo</h4><p>Para os dois dias de team building.</p><a href="gv-summit.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Merch · Polo</div></div>
+    <div class="slide" tabindex="0" data-car><div class="ph"><div class="car"><div class="sl" style="background-image:url(imagens/Palma_Mockup_Precario.jpg)"></div><div class="sl" style="background-image:url(imagens/Palma_Mockup_cartao.png)"></div><div class="sl" style="background-image:url(imagens/Palma_Mockup_voucher.png)"></div></div><span class="conta">1/3</span><div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div><div class="sov"><span class="tg">Impressos</span><h4>Palma</h4><p>Preçário, cartão e voucher.</p><a href="palma.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Impressos · Palma</div></div>
+    <div class="slide" tabindex="0" data-car><div class="ph"><div class="car"><div class="sl" style="background-image:url(imagens/AN_foto_landing-page_13.jpg)"></div><div class="sl" style="background-image:url(imagens/AN_print_detalhe-landing-page_14.png)"></div></div><span class="conta">1/2</span><div class="nav"><button class="prev" aria-label="Anterior">‹</button><button class="next" aria-label="Seguinte">›</button></div><div class="dots"><i class="on"></i><i class=""></i></div><div class="sov"><span class="tg">Web</span><h4>Landing page</h4><p>Programa e oradores do encontro anual.</p><a href="annual-meeting.html" class="gbtn">Ver projeto ↗</a></div></div><div class="cap">Web · Landing page</div></div>
   </div></div>
   <div class="rnav"><button id="rprev" aria-label="Anterior">‹</button><button id="rnext" aria-label="Seguinte">›</button></div>
 </section>
@@ -509,7 +603,7 @@ body.lbox-aberta{overflow:hidden}
 
 <footer>
   <div class="wrap row">
-    <span class="mono"><span class="bull">●</span> João Barbosa, Porto, Portugal</span>
+    <span class="mono"><span class="bull">●</span> João Barbosa — Porto, Portugal</span>
     <span class="mono">Marketing Designer</span>
   </div>
 </footer>
@@ -572,6 +666,48 @@ if(portrait){
   b.addEventListener('click',()=>alterna());
   m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>alterna(false)));
   addEventListener('keydown',e=>{ if(e.key==='Escape') alterna(false); });
+})();
+
+/* mede o brilho da imagem de destaque e adapta o cartão */
+(function(){
+  document.querySelectorAll('.preview').forEach(pv=>{
+    const bg=pv.querySelector('.bg'); if(!bg) return;
+    const m=(getComputedStyle(bg).backgroundImage||'').match(/url\(["']?([^"')]+)/);
+    if(!m) return;
+    const im=new Image(); im.crossOrigin='anonymous';
+    im.onload=()=>{
+      try{
+        const c=document.createElement('canvas'); c.width=32; c.height=32;
+        const x=c.getContext('2d'); x.drawImage(im,0,0,32,32);
+        const d=x.getImageData(0,0,16,32).data; // metade esquerda, onde fica o texto
+        let soma=0; for(let i=0;i<d.length;i+=4) soma+=(d[i]*.299+d[i+1]*.587+d[i+2]*.114);
+        const brilho=soma/(d.length/4);
+        if(brilho>150) pv.classList.add('clara');
+      }catch(e){}
+    };
+    im.src=m[1];
+  });
+})();
+
+/* carrosséis dentro da faixa */
+(function(){
+  document.querySelectorAll('.slide[data-car]').forEach(sl=>{
+    const car=sl.querySelector('.car'); if(!car) return;
+    const dots=[...sl.querySelectorAll('.dots i')], total=car.children.length; let i=0;
+    const conta=sl.querySelector('.conta');
+    const ir=n=>{i=(n+total)%total;car.style.transform='translateX(-'+(i*100)+'%)';
+      dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+      if(conta) conta.textContent=(i+1)+'/'+total;};
+    const prev=sl.querySelector('.prev'), next=sl.querySelector('.next');
+    if(next) next.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();ir(i+1)});
+    if(prev) prev.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();ir(i-1)});
+    sl.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();ir(i+1)}if(e.key==='ArrowLeft'){e.preventDefault();ir(i-1)}});
+    // arrastar no telemóvel
+    let x0=null;
+    sl.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+    sl.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;
+      if(Math.abs(dx)>40) ir(dx<0?i+1:i-1); x0=null;},{passive:true});
+  });
 })();
 </script>
 <div class="lbox" id="lbox">

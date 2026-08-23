@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Palma — João Barbosa</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#12151A">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
@@ -171,6 +176,25 @@ p,li,figcaption,
   font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.62)}
 body.lbox-aberta{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.lbox,.lbox .alvo{transition:none}}
+
+/* ===== AUDITORIA MOBILE: alvos de toque e legibilidade ===== */
+@media(max-width:860px){
+  .bar .logo{display:inline-flex;align-items:center;min-height:44px}
+  .langtog{min-height:44px;min-width:52px;padding:0 8px}
+  .burger{width:44px;height:44px}
+  .nextnav a{display:inline-flex;align-items:center;min-height:44px}
+  .go,.gbtn,.seemore a,.verposts,.pill{min-height:44px;display:inline-flex;align-items:center}
+  .reel .rnav button{width:48px;height:48px}
+  .post .nav button{width:42px;height:42px}
+  .clist a{min-height:56px}
+  .strip .act,.act{min-height:44px;display:inline-flex;align-items:center}
+  .mnav a{min-height:52px;display:flex;align-items:center}
+}
+@media(max-width:700px){
+  .cap,.proj-cat,.mono,.slide .cap,.tg,.kind,.lb,.slg,.gbtn,.go{font-size:11px!important}
+  .logocard .nm,.real,.simlab{font-size:10.5px!important}
+  .sov p,.ov p{font-size:12.5px!important}
+}
 </style>
 </head>
 <body>
@@ -261,12 +285,12 @@ body.lbox-aberta{overflow:hidden}
   <div class="wrap">
     <div class="ghead rv"><h3>A marca no espaço</h3><span class="mono">Fotografias</span></div>
     <div class="rv">
-      <div class="pc a169"><span class="real">peça real</span><img src="imagens/Palma_img4_real.jpg" alt="Logótipo em relevo na parede da loja"></div>
+      <div class="pc a169"><span class="real">peça real</span><img src="imagens/Palma_img_destaque.jpg" alt="Palma — a marca no espaço"></div>
     </div>
     <div class="g3 rv" style="margin-top:16px">
-      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img2_real.jpg" alt="Logótipo na parede e cartão de visita"></div>
-      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img1_real.jpg" alt="O espaço da loja"></div>
-      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img3_real.jpg" alt="Cartão de visita em detalhe"></div>
+      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img2_real.jpeg" alt="Logótipo na parede e cartão de visita"></div>
+      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img1_real.jpeg" alt="O espaço da loja"></div>
+      <div class="pc a45"><span class="real">peça real</span><img src="imagens/Palma_img3_real.jpeg" alt="Cartão de visita em detalhe"></div>
     </div>
     <div class="cap">A palmeira dentro do P, em relevo na parede — e o cartão no balcão</div>
   </div>

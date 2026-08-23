@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sistema de marca — Green Venture · João Barbosa</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#12151A">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
@@ -183,10 +188,9 @@ p,li,figcaption,
 .fam .cell img{width:100%;max-width:150px;height:auto;object-fit:contain}
 
 /* grelha de logótipos — cartões brancos iguais */
-.logos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
-.logocard{background:#fff;border-radius:var(--r);aspect-ratio:3/2;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:18px;padding:9% 11%;border:1px solid var(--line)}
-.logocard img{width:100%;max-height:52%;object-fit:contain}
+.logos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;padding:26px;border-radius:var(--r);background:linear-gradient(135deg,#38D430 0%,#0097CE 55%,#2F1E4F 100%)}
+.logocard{background:#fff;border-radius:var(--r);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:6% 9%;border:none;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.logocard img{width:100%;max-height:58%;object-fit:contain}
 .logocard .nm{font-family:"Space Mono",monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);text-align:center;line-height:1.9}
 @media(max-width:860px){.logos{grid-template-columns:1fr 1fr}}
 
@@ -208,6 +212,27 @@ p,li,figcaption,
   font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.62)}
 body.lbox-aberta{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.lbox,.lbox .alvo{transition:none}}
+
+/* ===== AUDITORIA MOBILE: alvos de toque e legibilidade ===== */
+@media(max-width:860px){
+  .bar .logo{display:inline-flex;align-items:center;min-height:44px}
+  .langtog{min-height:44px;min-width:52px;padding:0 8px}
+  .burger{width:44px;height:44px}
+  .nextnav a{display:inline-flex;align-items:center;min-height:44px}
+  .go,.gbtn,.seemore a,.verposts,.pill{min-height:44px;display:inline-flex;align-items:center}
+  .reel .rnav button{width:48px;height:48px}
+  .post .nav button{width:42px;height:42px}
+  .clist a{min-height:56px}
+  .strip .act,.act{min-height:44px;display:inline-flex;align-items:center}
+  .mnav a{min-height:52px;display:flex;align-items:center}
+}
+@media(max-width:700px){
+  .cap,.proj-cat,.mono,.slide .cap,.tg,.kind,.lb,.slg,.gbtn,.go{font-size:11px!important}
+  .logocard .nm,.real,.simlab{font-size:10.5px!important}
+  .sov p,.ov p{font-size:12.5px!important}
+}
+.pc:has(img),.pc:has(video),.ph:has(img),.ph:has(video),.real:has(img),.real:has(video),.slide .ph{border:none!important;background-image:none}
+.slide .ph[style*="background-image"]{background-image:inherit}
 </style>
 </head>
 <body>
@@ -258,7 +283,7 @@ body.lbox-aberta{overflow:hidden}
 <!-- ABERTURA: A FAMÍLIA -->
 <section>
   <div class="wrap rv">
-    <div class="logos"><div class="logocard"><img src="imagens/GV_Logo_Buzi-Companhia-solar.svg" alt="Central Solar do Buzi"><span class="nm">Central Solar do Buzi</span></div><div class="logocard"><img src="imagens/GV_Logo_Companhia-Solar-Chokwe.svg" alt="Companhia Solar do Chokwé"><span class="nm">Companhia Solar do Chokwé</span></div><div class="logocard"><img src="imagens/GV_Logo_Termoeletrica-Chokwe.svg" alt="Central Termoelétrica do Chokwé"><span class="nm">Central Termoelétrica do Chokwé</span></div><div class="logocard"><img src="imagens/Logo-EnerManica.png" alt="EnerManica"><span class="nm">EnerManica</span></div><div class="logocard"><img src="imagens/EnerNamialo.png" alt="EnerNamialo"><span class="nm">EnerNamialo</span></div><div class="logocard" style="background:linear-gradient(135deg,#38D430,#0097CE);border:none;justify-content:center"><span class="nm" style="color:#fff;font-size:11px;letter-spacing:.18em">Green<br>Venture</span></div></div></div>
+    <div class="logos"><div class="logocard"><img src="imagens/GV_Logo_Buzi-Companhia-solar.svg" alt="Central Solar do Buzi"><span class="nm">Central Solar do Buzi</span></div><div class="logocard"><img src="imagens/GV_Logo_Companhia-Solar-Chokwe.svg" alt="Companhia Solar do Chokwé"><span class="nm">Companhia Solar do Chokwé</span></div><div class="logocard"><img src="imagens/GV_Logo_Termoeletrica-Chokwe.svg" alt="Central Termoelétrica do Chokwé"><span class="nm">Central Termoelétrica do Chokwé</span></div><div class="logocard"><img src="imagens/Logo-EnerManica.png" alt="EnerManica"><span class="nm">EnerManica</span></div><div class="logocard"><img src="imagens/EnerNamialo.png" alt="EnerNamialo"><span class="nm">EnerNamialo</span></div></div></div>
     <div class="cap">As cinco marcas lado a lado — desenhos diferentes, mesma família</div>
   </div>
 </section>

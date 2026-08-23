@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Índice — João Barbosa</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#12151A">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
@@ -223,6 +228,27 @@ p,li,figcaption,
   font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.62)}
 body.lbox-aberta{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.lbox,.lbox .alvo{transition:none}}
+
+/* ===== AUDITORIA MOBILE: alvos de toque e legibilidade ===== */
+@media(max-width:860px){
+  .bar .logo{display:inline-flex;align-items:center;min-height:44px}
+  .langtog{min-height:44px;min-width:52px;padding:0 8px}
+  .burger{width:44px;height:44px}
+  .nextnav a{display:inline-flex;align-items:center;min-height:44px}
+  .go,.gbtn,.seemore a,.verposts,.pill{min-height:44px;display:inline-flex;align-items:center}
+  .reel .rnav button{width:48px;height:48px}
+  .post .nav button{width:44px;height:44px}
+  .clist a{min-height:56px}
+  .strip .act,.act{min-height:44px;display:inline-flex;align-items:center}
+  .mnav a{min-height:52px;display:flex;align-items:center}
+}
+@media(max-width:700px){
+  .cap,.proj-cat,.mono,.slide .cap,.tg,.kind,.lb,.slg,.gbtn,.go{font-size:11px!important}
+  .logocard .nm,.real,.simlab{font-size:10.5px!important}
+  .sov p,.ov p{font-size:12.5px!important}
+}
+.pc:has(img),.pc:has(video),.ph:has(img),.ph:has(video),.real:has(img),.real:has(video),.slide .ph{border:none!important;background-image:none}
+.slide .ph[style*="background-image"]{background-image:inherit}
 </style>
 </head>
 <body>
