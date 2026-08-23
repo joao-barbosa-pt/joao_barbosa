@@ -124,6 +124,25 @@ body.locked .langtog{color:rgba(255,255,255,.7)}
 body.locked .langtog b{color:#fff}
 @media(max-width:860px){ .burger{display:flex} }
 @media(min-width:861px){ .mnav{display:none} }
+
+/* ===== AMPLIAR IMAGENS ===== */
+.pc img,.pc video,.real img,.real video,.logocard img{cursor:zoom-in}
+.lbox{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;
+  background:rgba(10,13,18,.82);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  opacity:0;visibility:hidden;transition:opacity .32s var(--ease),visibility .32s;padding:5vh 5vw;cursor:zoom-out}
+.lbox.on{opacity:1;visibility:visible}
+.lbox .alvo{max-width:100%;max-height:90vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5);
+  transform:scale(.94);transition:transform .38s var(--ease);object-fit:contain;display:block}
+.lbox.on .alvo{transform:scale(1)}
+.lbox .fechar{position:absolute;top:24px;right:28px;width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;
+  font-family:"Space Mono",monospace;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:.25s var(--ease)}
+.lbox .fechar:hover{background:#fff;color:var(--dark)}
+.lbox .legenda{position:absolute;bottom:22px;left:0;right:0;text-align:center;
+  font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+body.lbox-aberta{overflow:hidden}
+@media(prefers-reduced-motion:reduce){.lbox,.lbox .alvo{transition:none}}
 </style>
 </head>
 <body>
@@ -273,6 +292,36 @@ document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3*
   b.addEventListener('click',()=>alterna());
   m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>alterna(false)));
   addEventListener('keydown',e=>{ if(e.key==='Escape') alterna(false); });
+})();
+</script>
+<div class="lbox" id="lbox">
+  <button class="fechar" aria-label="Fechar">✕</button>
+  <img class="alvo" id="lbox-img" alt="">
+  <video class="alvo" id="lbox-video" autoplay loop muted playsinline style="display:none"></video>
+  <div class="legenda" id="lbox-cap"></div>
+</div>
+<script>
+/* ampliar imagens ao clicar */
+(function(){
+  const cx=document.getElementById('lbox');
+  if(!cx) return;
+  const im=document.getElementById('lbox-img'), vd=document.getElementById('lbox-video'), cap=document.getElementById('lbox-cap');
+  const abrir=(el)=>{
+    const eVideo = el.tagName==='VIDEO';
+    im.style.display = eVideo?'none':'block';
+    vd.style.display = eVideo?'block':'none';
+    if(eVideo){ vd.src = el.currentSrc||el.src; vd.play().catch(()=>{}); }
+    else { im.src = el.currentSrc||el.src; im.alt = el.alt||''; }
+    const legenda = el.alt || (el.closest('.pc,.real,.logocard')?.parentElement?.querySelector('.cap')?.textContent) || '';
+    cap.textContent = legenda;
+    cx.classList.add('on'); document.body.classList.add('lbox-aberta');
+  };
+  const fechar=()=>{ cx.classList.remove('on'); document.body.classList.remove('lbox-aberta'); vd.pause(); };
+  document.querySelectorAll('.pc img,.pc video,.real img,.real video,.logocard img').forEach(el=>{
+    el.addEventListener('click',e=>{ e.preventDefault(); e.stopPropagation(); abrir(el); });
+  });
+  cx.addEventListener('click',e=>{ if(e.target===cx||e.target.classList.contains('fechar')) fechar(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape') fechar(); });
 })();
 </script>
 </body>

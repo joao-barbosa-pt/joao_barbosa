@@ -163,6 +163,25 @@ p,li,figcaption,
 
 .pc:has(img),.pc:has(video){border:none;background:transparent}
 .pc img,.pc video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ===== AMPLIAR IMAGENS ===== */
+.pc img,.pc video,.real img,.real video,.logocard img{cursor:zoom-in}
+.lbox{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;
+  background:rgba(10,13,18,.82);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  opacity:0;visibility:hidden;transition:opacity .32s var(--ease),visibility .32s;padding:5vh 5vw;cursor:zoom-out}
+.lbox.on{opacity:1;visibility:visible}
+.lbox .alvo{max-width:100%;max-height:90vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5);
+  transform:scale(.94);transition:transform .38s var(--ease);object-fit:contain;display:block}
+.lbox.on .alvo{transform:scale(1)}
+.lbox .fechar{position:absolute;top:24px;right:28px;width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;
+  font-family:"Space Mono",monospace;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:.25s var(--ease)}
+.lbox .fechar:hover{background:#fff;color:var(--dark)}
+.lbox .legenda{position:absolute;bottom:22px;left:0;right:0;text-align:center;
+  font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+body.lbox-aberta{overflow:hidden}
+@media(prefers-reduced-motion:reduce){.lbox,.lbox .alvo{transition:none}}
 </style>
 </head>
 <body>
@@ -208,24 +227,11 @@ p,li,figcaption,
   </div>
 </section>
 
-<div class="wrap">
-  <div class="warn rv">
-    ▲ O logótipo aqui em cima é uma <b>aproximação minha</b> à ideia dos três corações.<br>
-    Manda-me o ficheiro real (SVG ou PNG) e substituo.
-  </div>
-</div>
+
 
 <section>
   <div class="wrap rv">
-    <div class="opener">
-      <span class="simlab">exemplo</span>
-      <div class="hearts">
-        <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg"><path fill="#FBBA18" d="M50 88C20 66 4 50 4 30 4 15 15 4 29 4c9 0 17 5 21 12 4-7 12-12 21-12 14 0 25 11 25 26 0 20-16 36-46 58z"/></svg>
-        <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg"><path fill="#1258A1" d="M50 88C20 66 4 50 4 30 4 15 15 4 29 4c9 0 17 5 21 12 4-7 12-12 21-12 14 0 25 11 25 26 0 20-16 36-46 58z"/></svg>
-        <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg"><path fill="#029639" d="M50 88C20 66 4 50 4 30 4 15 15 4 29 4c9 0 17 5 21 12 4-7 12-12 21-12 14 0 25 11 25 26 0 20-16 36-46 58z"/></svg>
-      </div>
-      <div class="wordmark">CJR <i>Care</i></div>
-    </div>
+    <div class="opener"><img src="imagens/Care_logo.jpg" alt="Logótipo CJR Care" style="width:100%;height:100%;object-fit:contain"></div>
     <div class="cap">Três corações, três empresas do grupo</div>
   </div>
 </section>
@@ -261,7 +267,6 @@ p,li,figcaption,
   <div class="wrap">
     <div class="ghead rv"><h3>O logótipo</h3><span class="mono">02 / 04</span></div>
     <div class="g3 rv">
-      <div class="pc a43"><img src="imagens/Care_logo.jpg" alt="Logótipo CJR Care"></div>
       <div class="pc a43"><img src="imagens/Care_logo_construcao.jpg" alt="Construção do logótipo"></div>
       <div class="pc a43"><img src="imagens/Care_social-media-post.jpg" alt="Post para redes sociais"></div>
       <div class="pc a43"><video src="imagens/Care_video_post.mp4" autoplay loop muted playsinline></video></div>
@@ -272,27 +277,15 @@ p,li,figcaption,
 
 <section class="group">
   <div class="wrap">
-    <div class="ghead rv"><h3>A landing page</h3><span class="mono">03 / 04</span></div>
+    <div class="ghead rv"><h3>O site</h3><span class="mono">03 / 04</span></div>
     <div class="rv">
-      <div class="browser">
-        <span class="simlab">exemplo</span>
-        <div class="chrome"><i class="dot"></i><i class="dot"></i><i class="dot"></i><div class="url"></div></div>
-        <div class="screen">
-          <div class="hh">CJR Care</div>
-          <div class="hs">ATÉ 8 INICIATIVAS APOIADAS POR EDIÇÃO</div>
-          <div class="hr"><i style="background:#FBBA18"></i><i style="background:#1258A1"></i><i style="background:#029639"></i></div>
-          <div class="ln" style="top:72%"></div>
-          <div class="ln" style="top:80%;right:34%"></div>
-          <div class="ln" style="top:88%;right:52%"></div>
-        </div>
-      </div>
+      <div class="pc a169"><video src="imagens/Care_website.mp4" autoplay loop muted playsinline></video></div>
     </div>
-    <div class="g3 rv" style="margin-top:16px">
-      <div class="pc a43"><img src="imagens/Care_Mockup_web.jpg" alt="Landing page CJR Care"></div>
-      <div class="pc a43"><video src="imagens/Care_email-winners.mp4" autoplay loop muted playsinline></video></div>
-      <div class="pc a43"><img src="imagens/Care_Mockup_web_phone.jpg" alt="Landing page em telemóvel"></div>
+    <div class="g2 rv" style="margin-top:16px">
+      <div class="pc a43"><img src="imagens/Care_Mockup_web.jpg" alt="Site CJR Care"></div>
+      <div class="pc a43"><img src="imagens/Care_Mockup_web_phone.jpg" alt="Site em telemóvel"></div>
     </div>
-    <div class="cap">Construída em Webflow — o que é o programa, a quem se destina, como concorrer</div>
+    <div class="cap">Construído em Webflow — o que é o programa, a quem se destina, como concorrer</div>
   </div>
 </section>
 
@@ -348,6 +341,36 @@ document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3*
   b.addEventListener('click',()=>alterna());
   m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>alterna(false)));
   addEventListener('keydown',e=>{ if(e.key==='Escape') alterna(false); });
+})();
+</script>
+<div class="lbox" id="lbox">
+  <button class="fechar" aria-label="Fechar">✕</button>
+  <img class="alvo" id="lbox-img" alt="">
+  <video class="alvo" id="lbox-video" autoplay loop muted playsinline style="display:none"></video>
+  <div class="legenda" id="lbox-cap"></div>
+</div>
+<script>
+/* ampliar imagens ao clicar */
+(function(){
+  const cx=document.getElementById('lbox');
+  if(!cx) return;
+  const im=document.getElementById('lbox-img'), vd=document.getElementById('lbox-video'), cap=document.getElementById('lbox-cap');
+  const abrir=(el)=>{
+    const eVideo = el.tagName==='VIDEO';
+    im.style.display = eVideo?'none':'block';
+    vd.style.display = eVideo?'block':'none';
+    if(eVideo){ vd.src = el.currentSrc||el.src; vd.play().catch(()=>{}); }
+    else { im.src = el.currentSrc||el.src; im.alt = el.alt||''; }
+    const legenda = el.alt || (el.closest('.pc,.real,.logocard')?.parentElement?.querySelector('.cap')?.textContent) || '';
+    cap.textContent = legenda;
+    cx.classList.add('on'); document.body.classList.add('lbox-aberta');
+  };
+  const fechar=()=>{ cx.classList.remove('on'); document.body.classList.remove('lbox-aberta'); vd.pause(); };
+  document.querySelectorAll('.pc img,.pc video,.real img,.real video,.logocard img').forEach(el=>{
+    el.addEventListener('click',e=>{ e.preventDefault(); e.stopPropagation(); abrir(el); });
+  });
+  cx.addEventListener('click',e=>{ if(e.target===cx||e.target.classList.contains('fechar')) fechar(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape') fechar(); });
 })();
 </script>
 </body>
